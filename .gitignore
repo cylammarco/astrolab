@@ -1,2 +1,7 @@
 .DS_store
 ._*
+*.aux
+*.log
+*.aux
+astrolabman_2012.ps
+astrolabman_2012.pdf

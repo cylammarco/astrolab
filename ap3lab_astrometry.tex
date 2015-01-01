@@ -51,17 +51,59 @@ As indicated by the diagram, you can assume that
 the asteroid is orbiting the Sun in the same direction as the Earth.
 \begin{figure}
 \centerline{\psfig{file=stars.ps,width=18.0cm,angle=0}}
-\caption{Screenshot of the polyxena.fits image showing the locations of the 25 stars which can be used to
-define the equatorial coordinate system.}
+\caption{Screenshot of the polyxena.fits image showing the locations of the 25 stars which can be used to define the equatorial coordinate system.}
 \end{figure}
 
 \newpage
 \vspace*{1cm}
 
+{\bf Solving the asteroid's motion to give its distance from Sun in AU:} \\
+
+Over time $t$, the asteroid has moved by an angle $\theta$, so
+\begin{align*}
+D_{A} &= v_{A}t \\
+D_{E} &= v_{E}t.
+\end{align*}
+Subtracting one by the other, we have
+\begin{equation*}
+D_{E}-D_{A}=(v_{E}-v_{A})t
+\end{equation*}
+By trigonometry, we also know that
+\begin{equation*}
+\theta = \frac{D_{E}-D_{A}}{a-1},
+\end{equation*}
+hence
+\begin{equation*}
+\theta = \frac{(v_{E}-v_{A})t}{a-1}
+\end{equation*}
+Assuming the Earth and the asteroid follow two concentric circular orbits, by equating the Gravitational force to the centripetal force for the Earth,
+\begin{align*}
+\frac{GM_{\odot}M_{E}}{r_{E}^{2}} &= \frac{M_{E}v_{E}^{2}}{r_{E}} \\
+GM_{\odot} &= v_{E}^{2}r_{E};
+\end{align*}
+and for the asteroid,
+\begin{align*}
+\frac{GM_{\odot}M_{A}}{r_{A}^{2}} &= \frac{M_{A}v_{A}^{2}}{r_{A}} \\
+GM_{\odot} &= v_{A}^{2}r_{A}
+\end{align*}
+Solving these two relations gives
+\begin{equation*}
+v_{A} = \frac{v_{E}}{\sqrt{r_{A}}} = \frac{v_{E}}{a}.
+\end{equation*}
+Hence,
+\begin{align*}
+\theta &= \frac{v_{E}(1-\frac{1}{\sqrt{a}})t}{a-1} \\
+\frac{\theta}{v_{E}t} &= \frac{1}{a-1} \frac{\sqrt{a}-1}{\sqrt{a}} \\
+&= \frac{1}{(\sqrt{a}+1)(\sqrt{a}-1)} \frac{\sqrt{a}-1}{\sqrt{a}} \\
+a + \sqrt{a} - \frac{v_{E}t}{\theta} &= 0 \\
+\sqrt{a} &= \frac{-1\pm \sqrt{1+\frac{4v_{E}t}{\theta}}}{2}.
+\end{align*}
+(r.e.q.)
 
 \begin{center}
-\centerline{\psfig{file=ap3labasteroid.ps,width=16.0cm,angle=0}}
+\centerline{\psfig{file=ap3labasteroid.ps,width=1.0cm,angle=0}}
 \end{center}
+
 
 \begin{table}
 \begin{center}
