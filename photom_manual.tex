@@ -6,7 +6,8 @@
 {\Huge\bf CCD photometry}
 \end{center}
 
-{\bf \large{1. Introduction}}\\
+{\bf \large{1. Introduction}}
+
 This exercise involves the analysis of two images of a cluster of
 galaxies which have been obtained using a
 $v-$filter ($\lambda_{centre}=5500$\AA) and an $i-$filter ($\lambda_{centre}=8000$\AA). 
@@ -40,7 +41,8 @@ Your first task is to use the observations of the
 standard star to workout the absorption of the atmosphere in the $v-$
 and $i-$filters as a function of airmass ($\sec \theta$).
 
-{\bf \large{2. Standard star analysis}}\\
+{\bf \large{2. Standard star analysis}}
+
 All of the photometry measurements in this exercise are going to be
 performed using a software package called {\sc gaia} which allows you 
 to display, manipulate and analyse two dimensional astronomical images. The first thing to
@@ -64,7 +66,8 @@ demonstrator to show you how the basic features work.
 \caption{{\sc gaia} window displaying the image of a standard star.}
 \end{figure}
 
-{\large{\bf 3. Instrumental magnitudes}}\\
+{\large{\bf 3. Instrumental magnitudes}}
+
 \begin{figure}
 \centerline{\psfig{file=fig2.ps,width=8.0cm,angle=0}}
 \caption{{\sc gaia} window displaying the image of a standard star
@@ -132,7 +135,8 @@ and similarly for $e_i$. Use this equation to calculate the values of $e_v$ and 
 estimate the corresponding errors (you can assume that the values of
 $\sec \theta$ carry negligible uncertainty).
 
-{\large{\bf 5. Converting from instrumental to standard magnitudes}}\\
+{\large{\bf 5. Converting from instrumental to standard magnitudes}}
+
 Armed with knowledge of the atmospheric absorption as a function of
 airmass it is possible to convert observed magnitudes to ``above
 atmosphere'' values. It is known from previous observations that on the
@@ -149,7 +153,8 @@ m_{stan} = -2.5\log_{10} C  + ZP
 \]
 where $m_{stan}$ is the above atmosphere magnitude of the standard star.
 
-{\large{\bf 6. Determining cluster membership}}\\
+{\large{\bf 6. Determining cluster membership}}
+
 Now that you have calculated the appropriate zero points for the
 cluster galaxy images we are in a position to measure magnitudes and
 $(v-i)$ colours of the potential cluster galaxies on the standard
@@ -189,61 +194,9 @@ galaxy and it's colour, with brighter galaxies having redder colours
 (the so-called ``red sequence''). Using Gnuplot (or any other software you choose) fit a
 function of the form:\\
 \begin{center}
-$(v-i)$=$a\times$imag+$b$ 
+$(v-i)$=$a\times i-$mag+$b$ 
 \end{center}
 \noindent
 to your data and produce a final plot of $(v-i)$ versus $i-$magnitude with your
 best-fitting function overplotted. Does your data display a convincing
 red sequence?
-
-\newpage
-
-{\large{\bf Calculation of magnitude errors}}\\
-
-The definition of magnitude is:
-\begin{equation}
-m = -2.5\times log_{10} C
-\end{equation}
-\noindent
-where $C$ is the object counts within the aperture. This can be re-written as:
-\begin{equation}
-m = -2.5/ln(10) \times ln C
-\end{equation}
-\noindent
-which can be differentiated to give:
-\begin{equation}
-dm = -2.5/ln(10) \times (\delta C/C)
-\end{equation}
-\noindent
-This is the equation that {\sc gaia} uses to calculate the magnitude
-error ($dm$) in terms of the error on the object counts within the
-aperture ($\delta C)$.
-
-You should remember that the total counts within the aperture ($t$)
-are a combination of the counts from the object ($C$) and the counts from the
-sky ($s$):
-\begin{equation}
-t= C + s 
-\end{equation}
-\noindent
-where $s$ is the mean sky counts multiplied by the number of pixels
-within the aperture. Therefore, the final error on the objects counts
-is the sum in quadrature of the error on the total counts and the
-error on the sky counts:
-\begin{equation}
-\delta C = \sqrt( \delta t^2 + \delta s^2 )
-\end{equation}
-Moreover, due to the fact that we are dealing with Poisson/counting
-errors, we can also assume that:
-\begin{equation}
-\delta t = \sqrt(t)\,\, {\rm and}\,\, \delta s = \sqrt(s)
-\end{equation}
-\noindent
-which means that the error on the object counts ($\delta C$) is
-simply:
-\begin{equation}
-\delta C = \sqrt(t+s)
-\end{equation}
-\noindent
-substituting this back into Eqn 7 then allows you to calculate the
-magnitude error ($dm$).

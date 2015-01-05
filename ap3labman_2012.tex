@@ -1,12 +1,22 @@
 \documentclass[12pt]{article}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=30mm,
+ bottom=20mm,
+ }
 \usepackage{graphics}
 \usepackage{psfig}
-\oddsidemargin 6mm
-\evensidemargin 6mm
-\topmargin -6mm
-\textwidth 165mm
-\textheight 250mm
-\headheight 5mm
+\usepackage{amsmath}
+%\oddsidemargin 6mm
+%\evensidemargin 6mm
+\topmargin -10mm
+%\textwidth 165mm
+%\textheight 250mm
+%\headheight 5mm
 \headsep 4mm
 \parskip 4mm
 \parindent 0em
@@ -31,7 +41,7 @@
  Lab Handbook}
 \vspace*{1cm}
 
-{\Huge\bf 2012/13}
+{\Huge\bf 2014/15}
 \vspace*{1cm}
 
 \scalebox{0.3}{\includegraphics{crest.eps}}
@@ -49,7 +59,7 @@ Astronomical Exercises
 
 \centering
 {\Large\bf CONTENTS}
-\vspace*{4cm}
+\vspace*{2cm}
 
 \raggedright
 
@@ -61,22 +71,34 @@ REPORTS FORMAT
 SPECTROSCOPY \\
 \hspace*{2cm} Aims and Safety \\
 \hspace*{2cm} Equipment inventory\\
-\hspace*{2cm}1.  Adjustment of the prism spectrometer\\
+\hspace*{2cm}1. Adjustment of the prism spectrometer\\
 \hspace*{2cm}2. Adjustment of the grating spectrometer\\
 \hspace*{2cm}3. Identifying an unknown element\\
-\hspace*{2cm}4. Calibrating a colour filter 
+\hspace*{2cm}4. Calibrating a colour filter
 
 ASTRONOMICAL EXERCISES \\
 \hspace*{2cm}1. CCD photometry\\
 \hspace*{2cm}2. Quasar redshift \\
 \hspace*{2cm}3. Astrometry of asteroids on Schmidt plates
 
+APPENDIX A - General Computing\\
+\hspace*{2cm}1. Basic Unix Commands\\
+\hspace*{2cm}2. Useful Software\\
+\hspace*{2cm}3. IRAF packages\\
+\hspace*{2cm}4. Gnuplot Tutorial
 
-APPENDIX 1:\ \ \ {\large\sl A CCD Atlas of Helium/Neon/Argon Spectra}\\
-APPENDIX 2:\ \ \ {\large\sl Basic Unix Commands/Useful Software}\\
-APPENDIX 3:\ \ \ {\large\sl Gnuplot tutorial}\\
-APPENDIX 4:\ \ \ {\large\sl Error Propagation}\\
-\vspace*{4cm}
+APPENDIX B - Spectroscopy\\
+\hspace*{2cm}1. Minimum Deviation Angle\\
+\hspace*{2cm}2. Schuster's method\\
+\hspace*{2cm}3. A CCD Atlas of Helium/Neon/Argon Spectra
+
+APPENDIX C - Astronomical Exercise\\
+\hspace*{2cm}1. Error Propagation\\
+\hspace*{2cm}2. Calculation of magnitude errors\\
+\hspace*{2cm}3. Solving for Polyxena-Sun distance
+
+
+\vspace*{2cm}
 
 %{\small\sl
 %Edited expanded and revised by PWJL Brand.
@@ -89,9 +111,9 @@ APPENDIX 4:\ \ \ {\large\sl Error Propagation}\\
 %}
 
 \noindent
-Last updated: 27/10/2012 by R. McLure
-
-
+Prepared : 27/10/2012 by R. McLure\\
+Updated : 13/01/2013 by A. Ferguson\\
+Updated : 06/01/2015 by D. McLeod, M. Lam
 }
 
 \newpage
@@ -101,48 +123,56 @@ Last updated: 27/10/2012 by R. McLure
 
 %\begin{center}
 \begin{center}
-{\Large {\bf Astrophysics 3 Laboratory Timetable\ \ 2012-13}}\\
+{\Large {\bf Astrophysics 3 Laboratory Timetable\ \ 2014-15}}\\
 
 \bigskip
 
-\begin{tabular}{|c|ccccc||ccccccccc|}\hline
-{{\scriptsize\bf Mon/Thu (Sem1)}} &
+\begin{tabular}{|c|ccccccccc||ccccccccc|}\hline
+{{\scriptsize\bf Wed}} &
+ $\stackrel{\mbox{\tiny 17}}{\mbox{\tiny Sep}}$ &
+ $\stackrel{\mbox{\tiny 24}}{\mbox{\tiny Sep}}$ &
+ $\stackrel{\mbox{\tiny  1}}{\mbox{\tiny Oct}}$ &
+ $\stackrel{\mbox{\tiny  8}}{\mbox{\tiny Oct}}$ &
+ $\stackrel{\mbox{\tiny 15}}{\mbox{\tiny Oct}}$ &
+ $\stackrel{\mbox{\tiny 22}}{\mbox{\tiny Oct}}$ &
  $\stackrel{\mbox{\tiny 29}}{\mbox{\tiny Oct}}$ &
- $\stackrel{\mbox{\tiny  5}}{\mbox{\tiny Nov}}$ &
+ $\stackrel{\mbox{\tiny  5}}{\mbox{\tiny Nov}}$ & 
  $\stackrel{\mbox{\tiny 12}}{\mbox{\tiny Nov}}$ &
- $\stackrel{\mbox{\tiny 19}}{\mbox{\tiny Nov}}$ &
- $\stackrel{\mbox{\tiny 26}}{\mbox{\tiny Nov}}$ &
- $\stackrel{\mbox{\tiny 17}}{\mbox{\tiny Jan}}$ &
- $\stackrel{\mbox{\tiny 24}}{\mbox{\tiny Jan}}$ &
- $\stackrel{\mbox{\tiny 31}}{\mbox{\tiny Jan}}$ & 
- $\stackrel{\mbox{\tiny  7}}{\mbox{\tiny Feb}}$ &
- $\stackrel{\mbox{\tiny 14}}{\mbox{\tiny Feb}}$ &
- $\stackrel{\mbox{\tiny 21}}{\mbox{\tiny Feb}}$ &
- $\stackrel{\mbox{\tiny 28}}{\mbox{\tiny Feb}}$ &
- $\stackrel{\mbox{\tiny  7}}{\mbox{\tiny Mar}}$ &
- $\stackrel{\mbox{\tiny  14}}{\mbox{\tiny Mar}}$ \\
-{{\scriptsize\bf Thu/Fri (Sem2)}} &
- $\stackrel{\mbox{\tiny  1}}{\mbox{\tiny Nov}}$ &
- $\stackrel{\mbox{\tiny  8}}{\mbox{\tiny Nov}}$ &
- $\stackrel{\mbox{\tiny 15}}{\mbox{\tiny Nov}}$ &
- $\stackrel{\mbox{\tiny 22}}{\mbox{\tiny Nov}}$ &
- $\stackrel{\mbox{\tiny 29}}{\mbox{\tiny Nov}}$ &
- $\stackrel{\mbox{\tiny 18}}{\mbox{\tiny Jan}}$ &
- $\stackrel{\mbox{\tiny 25}}{\mbox{\tiny Jan}}$ &
- $\stackrel{\mbox{\tiny  1}}{\mbox{\tiny Feb}}$ & 
- $\stackrel{\mbox{\tiny  8}}{\mbox{\tiny Feb}}$ &
- $\stackrel{\mbox{\tiny 15}}{\mbox{\tiny Feb}}$ &
- $\stackrel{\mbox{\tiny 22}}{\mbox{\tiny Feb}}$ &
- $\stackrel{\mbox{\tiny  1}}{\mbox{\tiny Mar}}$ &
- $\stackrel{\mbox{\tiny  8}}{\mbox{\tiny Mar}}$ &
- $\stackrel{\mbox{\tiny  15}}{\mbox{\tiny Mar}}$ \\
+ $\stackrel{\mbox{\tiny 14}}{\mbox{\tiny Jan}}$ &
+ $\stackrel{\mbox{\tiny 21}}{\mbox{\tiny Jan}}$ &
+ $\stackrel{\mbox{\tiny 28}}{\mbox{\tiny Jan}}$ &
+ $\stackrel{\mbox{\tiny  4}}{\mbox{\tiny Feb}}$ &
+ $\stackrel{\mbox{\tiny 11}}{\mbox{\tiny Feb}}$ &
+ $\stackrel{\mbox{\tiny 18}}{\mbox{\tiny Feb}}$ &
+ $\stackrel{\mbox{\tiny 25}}{\mbox{\tiny Feb}}$ &
+ $\stackrel{\mbox{\tiny  4}}{\mbox{\tiny Mar}}$ &
+ $\stackrel{\mbox{\tiny 11}}{\mbox{\tiny Mar}}$ \\
+{{\scriptsize\bf Thu}} &
+ $\stackrel{\mbox{\tiny   }}{\mbox{\tiny    }}$ &
+ $\stackrel{\mbox{\tiny 25}}{\mbox{\tiny Sep}}$ &
+ $\stackrel{\mbox{\tiny  2}}{\mbox{\tiny Oct}}$ &
+ $\stackrel{\mbox{\tiny  9}}{\mbox{\tiny Oct}}$ &
+ $\stackrel{\mbox{\tiny 16}}{\mbox{\tiny Oct}}$ &
+ $\stackrel{\mbox{\tiny 23}}{\mbox{\tiny Oct}}$ &
+ $\stackrel{\mbox{\tiny 30}}{\mbox{\tiny Oct}}$ &
+ $\stackrel{\mbox{\tiny  6}}{\mbox{\tiny Nov}}$ & 
+ $\stackrel{\mbox{\tiny   }}{\mbox{\tiny    }}$ &
+ $\stackrel{\mbox{\tiny 15}}{\mbox{\tiny Jan}}$ &
+ $\stackrel{\mbox{\tiny 22}}{\mbox{\tiny Jan}}$ &
+ $\stackrel{\mbox{\tiny 29}}{\mbox{\tiny Jan}}$ &
+ $\stackrel{\mbox{\tiny  5}}{\mbox{\tiny Feb}}$ &
+ $\stackrel{\mbox{\tiny 12}}{\mbox{\tiny Feb}}$ &
+ $\stackrel{\mbox{\tiny 19}}{\mbox{\tiny Feb}}$ &
+ $\stackrel{\mbox{\tiny 26}}{\mbox{\tiny Feb}}$ &
+ $\stackrel{\mbox{\tiny  5}}{\mbox{\tiny Mar}}$ &
+ $\stackrel{\mbox{\tiny 12}}{\mbox{\tiny Mar}}$ \\
 \hline
 \hline
-GROUP 1 &\multicolumn{4}{c|}{Spectroscopy}&\multicolumn{2}{c|}{ }&\multicolumn{3}{c|}{Computing}&\multicolumn{5}{c|}{ }\\
+GROUP 1 &\multicolumn{5}{c|}{Spectroscopy}&\multicolumn{4}{c|}{ }&\multicolumn{3}{c|}{Computing}&\multicolumn{6}{c|}{ }\\
 \hline
-GROUP 2 &\multicolumn{1}{c|}{ }&\multicolumn{3}{c|}{Computing}&\multicolumn{5}{c|}{}&\multicolumn{1}{c|}{Sp}&\multicolumn{1}{c|}{}&\multicolumn{3}{c|}{ectroscopy}\\
+GROUP 2 &\multicolumn{2}{c|}{ }&\multicolumn{3}{c|}{Computing}&\multicolumn{4}{c|}{}&\multicolumn{4}{c|}{Spectroscopy}&\multicolumn{5}{c|}{}\\
 \hline
-GROUP 3 & \multicolumn{5}{c|}{ }&\multicolumn{4}{c|}{Spectroscopy} & \multicolumn{1}{c|}{Co}&\multicolumn{1}{c|}{}&\multicolumn{2}{c|}{oputing}&\multicolumn{1}{c|}{}\\
+GROUP 3 &\multicolumn{4}{c|}{ }&\multicolumn{5}{c|}{Spectroscopy} &\multicolumn{3}{c|}{}& \multicolumn{2}{c|}{Comput}&\multicolumn{1}{c|}{}&\multicolumn{1}{c|}{ing}&\multicolumn{2}{c|}{}\\
 \hline
 \end{tabular}
 \end{center}
@@ -150,46 +180,45 @@ GROUP 3 & \multicolumn{5}{c|}{ }&\multicolumn{4}{c|}{Spectroscopy} & \multicolum
 
 
 \begin{center}
-\begin{tabular}{lll}
-Group 1: & Spectroscopy: 29th Oct - 22nd Nov &Computing: 24th Jan - 8 Feb\\
-Group 2: & Computing: 5th Nov - 22nd Nov     &Spectroscopy: 14th Feb - 15th Mar\\
-Group 3: & Spectroscopy: 17th Jan - 8th Feb  & Computing: 14th Feb - 8th Mar
+\begin{tabular}{lllll}
+Group 1: & Spectroscopy: & 17 Sep - 15 Oct & Computing:    & 14 Jan - 29 Jan\\
+Group 2: & Computing:    &  1 Oct - 16 Oct & Spectroscopy: & 14 Jan - 5 Feb\\
+Group 3: & Spectroscopy: & 16 Oct - 12 Nov & Computing:    &  4 Feb - 26 Feb
 \end{tabular}
 \end{center}
 
 \begin{center}
 \begin{tabular}{lll}
 
-{\bf GROUP 1}                &   {\bf GROUP 2}      & {\bf GROUP 3}    \\
-(1) V. Weller von Ahlefeld   & (1) R. Alberigo      & (1) J.D. Pantel\\
-(2) C. D'Arcy                & (2) N. Harris        & (2) F.K. Chrysostomou\\
-(3) A. Kirkham               & (3) M. Aiken         & (3) R. Leung     \\
-(4) J. Tyrie                 & (4) N. Robertson     & (4) A. Wallington\\
-(5) V. Yotov                 & (5) T. Gregory       & (5) A. Coop    \\
-(6) D. Saynova               & (6) I. Kovieraite    & (6) R. Crossley \\
-\phantom{(6) D. Saynova}     & (7) A. Agha  & \phantom{(6) R. Crossley} \\
+{\bf GROUP 1}      &   {\bf GROUP 2}        & {\bf GROUP 3}     \\
+(1) David Behrendt & (1) Themis Rallis      & (1) Aaron Bradley \\
+(2) Evan Cornforth & (2) Gavin Prior        & (2) Alexander Falk\\
+(3) Jindra Gensior & (3) Eleanor Spring     & (3) Emily Filmer  \\
+(4) Tara Bruendl   & (4) Alonso Riuz Blanco & \\
+(5) Peter McLagan  & (5) Benjamin Sidi      & \\
+(6) Craig Atkins   & (6) Calum Turner       & \\
+
 \end{tabular}
 \end{center}
 
 
-{\bf Report Hand-in dates :}\  Hand-in dates for each group are 3
-weeks after the completion of the individual lab module in
-question. All reports must be handed-in to the IfA teaching office by
-4pm on the following dates:\\
+{\bf Report Hand-in dates :}\  Hand-in dates for each group are 2 weeks after the completion of the individual lab module in question. All reports must be handed-in to the IfA teaching office by 5pm on the following dates:\\
 
 \begin{center}
 \begin{tabular}{ll}
-December 13th : & Group 1 spectroscopy and Group 2 computing hand-in date\ \\
-March     1st : & Group 1 computing and Group 3 spectroscopy hand-in date\\
-March    29th : & Group 3 computing hand-in date\\
-April     5th : & Group 2 spectroscopy hand-in date
+29th October :  & Group 1 spectroscopy report hand-in date\ \\
+30th October :  & Group 2 computing report hand-in date\\
+26th November : & Group 3 spectroscopy report hand-in date\\
+12th February : & Group 1 computing report hand-in date\\
+26th February : & Group 2 spectroscopy report hand-in date\\
+12th March :    & Group 3 computing report hand-in date
 \end{tabular}
 \end{center}
 
 
 \vspace*{2mm}
-{\sl Ross McLure\\
-October 2012}
+{\sl Sadegh Khochfar\\
+September 2014}
 
 
 
@@ -198,41 +227,24 @@ October 2012}
 \begin{center}
 {\bf FORMAT FOR REPORTS}
 \end{center}
+\begin{enumerate}
+\item The report should supply enough detail to make clear to someone like yourself what the purpose and methods are, how they were achieved, and what the results are, with diagrams as required. 
 
-1. The report should supply enough detail to make clear to someone like
-yourself what the purpose and methods are, how they were achieved, and
-what the results are, with diagrams as required. 
+\item The data should be displayed (in graphs and tables for instance) in enough detail to allow confirmation of your conclusions.
 
-2. The data
-should be displayed (in graphs and tables for instance) in enough detail to
-allow confirmation of your conclusions.
+\item The fundamental empirical basis of scientific fact is a number PLUS associated error. Without the error (usually quoted as a standard deviation or error on the mean, with the hidden -- and sometimes unwarranted -- assumption that the measurement error is normally distributed) it is impossible to assess the odds that the hypothesis that you are advancing is true. {\sl It is very important in these projects that you analyse the measurement (and any other) errors properly.}
 
-3. The fundamental empirical basis of scientific fact is a number PLUS
-associated error. Without the error (usually quoted as a standard deviation
-or error on the mean, with the hidden -- and sometimes unwarranted -- assumption that the measurement
-error is normally distributed) it is impossible to assess the odds that the 
-hypothesis that you are advancing is true. {\sl It is very important in these
-projects that you analyse the measurement (and any other) errors properly.}
+\item The length is arbitrary, but as a guide, the {\sl Astronomical Exercises} can be reported in {\bf five to six pages}, perhaps with detailed lists of data as an appendix. The {\sl Spectroscopy} report might occupy {\bf ten to fifteen pages}, including graphs and diagrams, perhaps with a numerical appendix as for the {\sl AE} report.
 
-4. The length is arbitrary, but as a guide, the {\sl Astronomical Exercises} 
-can be reported in five to six pages, perhaps with detailed lists of data as 
-an appendix. The {\sl Spectroscopy} report might occupy ten to fifteen pages, 
-including graphs and diagrams, perhaps with a numerical appendix as for the 
-{\sl AE} report.
+\item Relevant references, ackowledgements, and attributions should be listed at the end.
 
-5. Relevant references, ackowledgements, and attributions should be listed
-at the end.
+\item The report should be produced by word processing, and be a neat and professional document, sensibly bound (perform the following thought experiments: (1) if your report were dropped from a height of two metres onto a hard floor, would it disintegrate? (2) you are the assessor: do you need a tin-opener to start reading this report? Both answers better be {\sl no}).
 
-6. The report should be produced by word processing, and be a neat and
-professional document, sensibly bound (perform the following thought 
-experiments: (1) if your report were dropped from a height of two metres onto a
-hard floor, would it disintegrate? (2) you are the assessor: do you need a
-tin-opener to start reading this report? Both answers better be {\sl no}).
+\item If working in tandem, note the name of your lab partner on the front of the book.
 
-7. If working in tandem, note the name of your lab partner on the front of 
-the book.
+\item {\bf Deadlines} are three term weeks after the end of the relevant slot.
 
-8. {\bf Deadlines} are three term weeks after the end of the relevant slot.
+\end{enumerate}
 
 \bigskip 
 
@@ -241,58 +253,33 @@ the book.
 \vspace*{0.3cm}
 
 \noindent
-For reasons of Health and Safety, and for security it will not be
-possible for you to remain in the laboratories after 5:00pm. The
-Library is available as study space. Arrangements to borrow books may
-be made with the librarian (Karen Moran, ksm@roe.ac.uk; Rm. R11), who will also
-provide information about the library's collection and its borrowing. If
-you choose to remain in the Observatory after 5:00pm (to work in the
-Library, for example) you {\bf MUST} sign the out-of-hours attendance
-sheet at the gate-lodge.
-
+For reasons of Health and Safety, and for security it will not be possible for you to remain in the laboratories after 5:00pm. The Library is available as study space. Arrangements to borrow books may be made with the librarian (Karen Moran, karen.moran@stfc.ac.uk; Rm. R11), who will also provide information about the library's collection and its borrowing. If you choose to remain in the Observatory after 5:00pm (to work in the Library, for example) you {\bf MUST} sign the out-of-hours attendance sheet at the gate-lodge.
 
 %Undergraduate students may {\bf NOT} remain in
 %the Observatory after 9:30pm unless accompanied by a staff member or
 %supervisor.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                %%%                %%%                %%%                %%%%
+%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%                %%%                %%%                %%%  %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%  %%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%
+%%%                %%%  %%%%%%%%%%%%%%%%%                %%%                %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \newpage
@@ -339,36 +326,26 @@ physical knowledge, and how to deal with it.}
 \vspace*{8mm}
 
 
-{\begin{center}\bf SAFETY  ISSUES \& CARE OF EQUIPMENT\end{center}}
+{\begin{center}\bf SAFETY ISSUES \& CARE OF EQUIPMENT\end{center}}
+\begin{enumerate}
+\item Ensure equipment is properly connected to mains electricity, from final item ({\sl e.g.} lamp) to wall socket, before switching on. Switch off before changing connections. At the end of each work period, ensure that power is switched off at the wall.
 
-1. Ensure equipment is properly connected to mains electricity, from final 
-item ({\sl e.g.} lamp) to wall socket, before switching on. Switch off
-before changing connections. At the end of each work period, ensure that 
-power is switched off at the wall.
+\item In particular, do not use the spectral lamp power supply without a lamp installed, as very high voltages are generated.
 
-2. In particular, do not use the spectral lamp power supply without a lamp 
-installed, as very high voltages are generated.
+\item Do not handle the spectral lamps directly, as they may be very hot; and your hands leave deposits that may etch the glass and destroy the lamp.
 
-3. Do not handle the spectral lamps directly, as they may be very hot; and your
-hands leave deposits that may etch the glass and destroy the lamp.
+\item Do not touch optical surfaces. In particular, NEVER touch the face of a grating.
 
-4. Do not touch optical surfaces. In particular, NEVER touch the face of
-a grating.
+\item Always close down the laptop computers in an orderly fashion.
 
-5. Always close down the laptop computers in an orderly fashion.
+\item TLC with everything.
+\end{enumerate}
 
-6. TLC with everything.
 \newpage
 
 {\large\bf Spectroscopy lab equipment}
 
-An important part of this module of the laboratory course is to
-finish where you started, at least as far as equipment is concerned.
-At the start of the module, you should have your own bench with
-a complete inventory of equipment, listed below. At the finish, it should
-be neatly returned to this state, with all mains switches off and mains
-plugs removed from sockets, and {\sl checked with a demonstrator before 
-departure}. 
+An important part of this module of the laboratory course is to finish where you started, at least as far as equipment is concerned. At the start of the module, you should have your own bench with a complete inventory of equipment, listed below. At the finish, it should be neatly returned to this state, with all mains switches off and mains plugs removed from sockets, and {\sl checked with a demonstrator before departure}. 
 
 \parbox[t]{80mm}{
 {\bf Bench top : } \\
@@ -429,221 +406,39 @@ departure}.
 \includegraphics{ap3labspec0.ps}
 \end{center}
 
-0. Check that you know how a prism spectrometer works.
+\begin{enumerate}
+\item Check that you know how a prism spectrometer works.
 
-1. Set the collimator parallel to the front of the bench (where the drawers 
-are!). Level the collimator with a spirit level. Make sure it is at the same
-height as the  opening in the prism table cover (otherwise it won't fit!).
+\item Set the collimator parallel to the front of the bench\,(where the drawers are!). Level the collimator with a spirit level. Make sure it is at the same height as the opening in the prism table cover\,(otherwise it won't fit!).
 
-2. Open the slit wide and illuminate by a white light source (use a lens to
-focus filament on slit).  Set telescope 180$^\circ$ from collimator and
-adjust its height to receive beam from  collimator.  Level telescope
-with spirit level.  Reduce the brightness of the beam  and shorten the
-slit before looking through the eyepiece in the plate at
-the back of the telescope.  Adjust the level using the screw on the saddle at the
-back of the  telescope until the image of the slit is centred in the
-exit slot. Check that the collars on the saddle stems are set and locked with 
-Allen screws.
+\item Open the slit wide and illuminate by a white light source (use a lens to focus filament on slit). Set the telescope 180$^\circ$ from the collimator and adjust its height to receive beam from  collimator. Level the telescope with the spirit level. Reduce the brightness of the beam and shorten the slit before looking through the eyepiece in the plate at the back of the telescope. Adjust the level using the screw on the saddle at the back of the telescope until the image of the slit is centred on the exit slot. Check that the collars on the saddle stems are set and locked with Allen screws.
 
-3. Adjust and level the prism table, as follows.  Place the prism on table.
-Replace the white light with a helium or mercury lamp.
-Take great care with the  transformer, which develops a high
-open-circuit voltage: make sure that the lamp is  inserted before you
-switch on the transformer.  Find the minimum deviation of the prism and bring the
-telescope round to this position. Shorten the slit and re-level the
-telescope with the fine screw (the bench may not be perfectly level).
-Check the levelling of the prism table  by making sure that the
-spectrum remains at the same height  when the prism is
-rotated through the spectrum on both sides of minimum deviation.
-Small  adjustments to the prism table levelling screws may be needed
-to make this perfect.   For levelling, the shorter the slit, the more
-critically you can make this adjustment.
+\item Adjust and level the prism table, as follows.  Place the prism on table. Replace the white light with a helium lamp. Take great care with the transformer, which develops a high open-circuit voltage: make sure that the lamp is inserted before you switch on the transformer. Find the minimum deviation\,(See appendix) of the prism and bring the telescope round to this position. Shorten the slit and re-level the telescope with the fine screw\,(the bench may not be perfectly levelled). Check the levelling of the prism table  by making sure that the spectrum remains at the same height  when the prism is rotated through the spectrum on both sides of minimum deviation. Small  adjustments to the prism table levelling screws may be needed to make this perfect. For levelling, the shorter the slit, the more critically you can make this adjustment.
 
-4. If the spectrum lines are not vertical  (i.e., not at right angles
-to dispersion), check  the slit head, which is slightly rotatable
-(black knobs to the sides of the slit mount at the end of the collimator
-tube).  Make the slit long for this adjustment.
+\item If the spectrum lines are not vertical\,(i.e., not at right angles to dispersion), check the slit head, which is slightly rotatable\,(black knobs to the sides of the slit mount at the end of the collimator tube). Make the slit long for this adjustment.
 
-\newpage
-5. Make sure that you understand why there is a minimum deviation (see
-theory on Page 5), and check that the angle of 
-minimum deviation $D_{min}$, which occurs when light travels through the 
-prism parallel to its base, is given in terms of 
-prism angle $A$ and refractive index $n$ by 
-\[  \sin \frac{A+D_{min}}{2} = n \sin \frac{A}{2}   \] {\bf Calculate the 
-refractive index $n$ for your prism and estimate the error in n}. 
-Repeat the process for a number of different emission lines to measure 
-how the refractive index varies as a function of wavelength (you should include a graph of 
-refractive index versus wavelength in your spectroscopy report).
+\item Make sure that you understand why there is a minimum deviation, and check that the angle of minimum deviation $D_{min}$, which occurs when light travels through the prism parallel to its base, is given in terms of prism angle $A$ and refractive index $n$ by \[  \sin \left( \frac{A+D_{min}}{2} \right) = n \sin \left( \frac{A}{2} \right)   \] {\bf Calculate the refractive index $n$ for your prism and estimate the error in n}. Repeat the process for at least five emission lines to measure how the refractive index varies as a function of wavelength\,(you should include a graph of refractive index versus wavelength in your report).
+\end{enumerate}
+
 \begin{center}
 \includegraphics{ap3labspec1.ps}
 \end{center}
 
-{\large {\bf Focussing the collimator by Schuster's method}\footnote{
-SCHUSTER, A., 1879, `An easy Method for Adjusting the Collimator of
-a Spectroscope',  {\sl Phil. Mag.} {\bf 7}, 95} }
+{\large {\bf Focussing the collimator by Schuster's method}\footnote{SCHUSTER, A., 1879, `An easy Method for Adjusting the Collimator of a Spectroscope',  {\sl Phil. Mag.} {\bf 7}, 95} {\bf (See Appendix)}}
 
- 1. Set the prism at minimum deviation on one spectrum line, e.g., green
-(see Helium picture and tables).  Close the slit to fairly narrow width.
-Rotate the prism table away from minimum deviation, increasing angle of
-{\em incidence} on  prism; we'll call this prism position 1'. 
-Then move the telescope to find the line.
+\begin{enumerate}
+\item Set the prism at minimum deviation on one spectrum line, e.g., green (see Helium picture and tables).  Close the slit to fairly narrow width. Rotate the prism table away from minimum deviation, increasing angle of {\em incidence} on  prism; we'll call this prism position 1'. Then move the telescope to find the line.
 
-2. Focus the telescope for a sharp line (first focus eyepiece (push/pull) on 
-cross-wire, then  focus spectrum line on cross-wire).
+\item Focus the telescope for a sharp line (first focus eyepiece (push/pull) on cross-wire, then  focus spectrum line on cross-wire).
 
-3. Keep telescope fixed in the same position. Rotate prism table in the 
-direction opposite to 1. above, thus {\em decreasing\/} angle
-of incidence on  prism, until the image of the same line again appears
-central in the eyepiece.  Focus the
-collimator.  To focus the collimator while viewing through the
-eyepiece get your lab partner to focus while you view through
-the slit. Now return the prism to its position 1. 
+\item Keep telescope fixed in the same position. Rotate prism table in the direction opposite to 1. above, thus {\em decreasing\/} angle of incidence on  prism, until the image of the same line again appears central in the eyepiece.  Focus the collimator.  To focus the collimator while viewing through the eyepiece get your lab partner to focus while you view through the slit. Now return the prism to its position 1. 
 
-4. Repeat processes (2) and (3), and continue until no further
-improvement is possible.   Note collimator scale reading.
+\item Repeat processes (2) and (3), and continue until no further improvement is possible.   Note collimator scale reading.
 
-5. Repeat the process with other spectrum lines and draw up a table
-and graph relating collimator scale reading to wavelength. {\bf Estimate and 
-explain the sources of the errors in the measurements, and explain any trends.}
+\item Repeat the process with other spectrum lines and draw up a table and graph relating collimator scale reading to wavelength. {\bf Estimate and explain the sources of the errors in the measurements, and explain any trends.}
 
-6. Choose the collimator position which you think is the best average
-position for the  wavelength range you intend to use, and fix it
-permanently.
-\newpage
-
-\begin{center}
-{\large {\bf Minimum deviation and the principle of Schuster's method}}
-\end{center}
-%\fbox{
-%\begin{minipage}[t]{6in}
-%\vspace*{3mm}
-%\begin{center}
-%\includegraphics{ap3labspec2.ps}
-\centerline{\psfig{file=ap3labspec2.ps,width=8.0cm,angle=0}}
-%\end{center}
-
-The diagram shows a ray passing though a prism with refractive index $n$
-and prism angle $A$. The ray is deviated by angle $D$. From geometry
-it is clear that:\\
-\begin{center}
-\begin{equation}
-(90 \degree - r_1) + A + (90\degree - r_2)=180\degree 
-\Rightarrow A=r_1 + r_2
-\end{equation}
-\end{center}
-and that the angle of deviation $D$ is given by:
-\begin{center}
-\begin{equation}
-D=(i_1 - r_1) + (i_2 - r_2) = i_1 + i_2 - A
-\end{equation}
-\end{center}
-The minimum deviation occurs when:
-\begin{center}
-\begin{equation}
-{\Large
-\frac{dD}{d i_1}=0 \Rightarrow \frac{d i_2}{d i_1}=-1
-}
-\end{equation}
-\end{center}
-
-A simple geometrical argument demonstrates that the minimum deviation
-must happen when $i_1 = i_2$ (i.e. when the light ray passes
-through the prism parallel to the base). If this were not the case, we
-could simply reverse the direction of the light path to prove that
-there are two distinct angles of minimum deviation, which is not true.
-
-At minimum deviation ($i_1=i_2$) we can see from equation 2 that:
-$i_1=\frac{D_{min}+A}{2}$\\
-
-And from Snell's law ($\sin i_1=n\sin r_1$), at minimum deviation
-($r_1=r_2=A/2$) we have:
-$\sin i_1=n\sin\frac{A}{2}$
-which in turn means that:
-\begin{equation}
-{\Large
-n\sin\frac{A}{2}=\sin\frac{D_{min}+A}{2}
-}
-\end{equation}
-This equation allows us to calculate the refractive index of the
-prism.
-\newpage
-{\large{\bf Schuster's method}}\\
-We have just demonstrated that $d i_2 = -d i_1$ at the minimum
-deviation. However, at an arbitrary angle of incidence, a small change
-in incidence angle $i_1$ gives rise to a change in 
-emergence angle $i_2$ which can be written
-\[   \mbox{\rm d}i_2 = - K\:\mbox{\rm d}i_1    \]
-where $K$ can be calculated from Snell's law
-(e.g. $\sin i =n \sin r $) which, at each surface, gives
-\[  \mbox{\rm d}i = n (\cos r/\cos i)\mbox{\rm d}r.   \]
-Since $r_1 + r_2 = A$ (a constant) d$r_1$ = -d$r_2$ and hence
-\[  K = \left(\frac{\cos r_2}{\cos i_2}\right) / 
-    \left(\frac{\cos r_1}{\cos i_1}\right)       =
-     \sqrt{\frac{1-\mu^2\sec^2 r_1}{1-\mu^2\sec^2 r_2}},  \]
-
-To prove this result requires some algebra. You will need to use
-Snell's law, the identity $sin^2 \theta + cos^2\theta =1$ and make the
-substitution: $\mu^2 =  1 - 1/n^2$.
-
-Hence if $i_2<i_1$ then, since $r_2<r_1$ and $\sec r_2 <  \sec r_1$, it 
-follows that $K<1$. This means that $|di_2|<|di_1|$. And conversely, if
-$i_2>i_1$ then $K>1$ and $|di_2|>|di_1|$.
-
-
-\vspace*{3mm}
-
-{\large Thus the result:  a small change in incidence angle $i_1$ makes a 
-smaller change in emergence angle $i_2$ if the emergence angle is 
-smaller than the incidence angle (and bigger if bigger).}\\
-
-\medskip
-
-\noindent
-By applying this principle we can focus the spectrometer. The basic
-idea is that you find the minimum
-deviation of the prism (at which point $i_1=i_2$). You then move the
-prism away from minimum deviation, such that $i_2>i_1$ and re-acquire
-the emission line with the telescope (position 1). From the above
-argument, at this position a small change in $i_1$ will result in a larger
-change in $i_2$ - which means that any defocus in the telescope will
-be exaggerated (which is why it is best to focus the
-telescope in this position). In the second prism position where you
-can see the emission line $i_2<i_1$. This means that any defocus in
-the collimator will be exaggerated at this position (which is why we
-focus the collimator in this position).
-
-
-%\vspace*{3mm}
-%$\end{minipage}
-%}
-
-\newpage
-
-Applying the principle to
-the spectrometer we see the following.
-
-When all the light rays incident on the prism are parallel 
-then all are deviated by the same amount and emerge parallel, and
-so the focus position of the telescope remains the same whatever the
-deviation, and the image remains sharp  moving from one side of
-minimum deviation to the other. 
-
-However, if the incident beam is convergent or divergent on the prism 
-(set so that the emergent rays are  more nearly normal, \ie 
-average incidence angle is greater than average emergence angle), then
-the range of angles of emergent rays is {\sl less\/}: they are 
- more parallel as they leave the prism and enter the telescope.
-In this case, the telescope should be focussed as its focus position will be
-more nearly at the focal plane. Moving to the other prism 
-position at
-which the line is visible, the collimator beam is the more parallel,
-so the collimator should be focussed in the beam which -- since it is more 
-parallel than is the telescope beam -- will bring the focus position of the 
-collimator even closer to its focal plane. Alternating positions and 
-focussing the 
-more parallel beam will converge to the situation in which each beam is 
-parallel, and the system is focussed for that wavelength.
+\item Choose the collimator position which you think is the best average position for the  wavelength range you intend to use, and fix it permanently.
+\end{enumerate}
 
 \newpage
 
@@ -651,112 +446,54 @@ parallel, and the system is focussed for that wavelength.
 
 {\bf Levelling the spectrometer}
 
-1. Replace the prism and its table by the grating.  Be very careful
-NEVER to touch the  face of the grating.  The grating is to be used
-in the first order, which is blazed at  an angle of about 8$^\circ$
-(particulars of the grating are supplied with each in the red box  at
-the back of one of the bench drawers.  Do not lose this sheet; return
-it to the box).
+\begin{enumerate}
 
-2. Move the collimator and telescope to the front positions on the
-bench (marked out  by screw holes).  Screw the collimator to the
-bench.  Level the grating, for a start  with the three screws on its
-table, using the spirit level.
+\item Replace the prism and its table by the grating. Be very careful NEVER to touch the face of the grating. The grating is to be used in the first order, which is blazed at an angle of about 8$^\circ$.
 
-3. Set up the white light plus lens and use a very wide slit to give
-plenty of light.  Begin  adjustment by considering the grating as a
-mirror.  Find the zero order (= direct  reflection); place the grating
-at right angles to the collimator and send the reflected  light back
-on itself.  Cover one half of the collimator lens with a piece of
-white  paper: the reflected beam of the exposed half should coincide
-with the covered half.   If it does not, tip the grating by using the
-front levelling foot.
+\item Move the collimator and telescope to the front positions on the bench\,(marked out  by screw holes). Screw the collimator to the bench. Level the grating, for a start with the three screws on its table, using the spirit level.
 
-4. Move the telescope out of the way and rotate the grating to throw
-the light from it  on the laboratory wall.  The zero order and side
-spectra will be seen.  By patient  adjustment of level of grating the
-zero order will be made to move in a horizontal  plane as the grating
-is rotated.  The grating (considered as a mirror) is now
-perpendicular to the beam from the collimator.  The side spectra may
-not, however,  lie in the same plane as the zero order, because the
-grating rulings may not be  vertical.
+\item Set up the white light plus lens and use a very wide slit to give plenty of light. Begin  adjustment by considering the grating as a mirror. Find the zeroth order\,(\ie direct reflection); place the grating at right angles to the collimator and send the reflected light back on itself. Cover one half of the collimator lens with a piece of white paper: the reflected beam of the exposed half should coincide with the covered half. If it does not, tip the grating by using the front levelling foot.
 
-5. To adjust this, the grating is rotatable in its cell by screws at
-the top (loosen one  screw; tighten the other).  Make these changes
-very carefully, very little at a time.   When the rulings are vertical
-the side spectra are at the same height as the zero  order (though
-this does not remain so at the higher orders).  Return the telescope
-to  its position and get the zero order central (vertically) in the
-eyepiece by re-adjusting  the level of the telescope (the fine
-adjustment screw ought to be sufficient since the  instrument was
-already levelled in the prism position).  Make the slit very short and
-get the zero order on the horizontal cross-wire.  Rotate the grating
-and make final  adjustments to get the side spectra at the same
-vertical height as the zero order.   (Concentrate on the first orders
-and especially the blazed one, which has red on the  right and violet
-on the left, as viewed).
+\item Move the telescope out of the way and rotate the grating to throw the light from it on the laboratory wall. The zeroth order and side spectra will be seen. By patient adjustment of level of grating the zeroth order will be made to move in a horizontal plane as the grating is rotated. The grating\,(considered as a mirror) is now perpendicular to the beam from the collimator. The side spectra may not, however, lie in the same plane as the zeroth order, because the grating rulings may not be vertical.
 
-6. Change to the Helium lamp. Check that the slit is vertical.  
-Place the horizontal cross-wire
-along the direction of  dispersion (unfortunately the cross-wires are
-not rotatable so you may have to  unscrew the eyepiece a little to
-achieve this).  Now make the slit very long.  Place a  spectrum line
-at the cross-wire: it should coincide with the vertical wire.  If not,
-rotate the slit head in the collimator until it is.
+\item To adjust this, the grating is rotatable in its cell by screws at the top\,(loosen one  screw; tighten the other). Make these changes very carefully, very little at a time. When the rulings are vertical the side spectra are at the same height as the zeroth order\,(though this does not remain so at the higher orders). Return the telescope to its position and centre the zeroth order\,(vertically) at the eyepiece by re-adjusting the level of the telescope\,(the fine adjustment screw ought to be sufficient since the instrument was already levelled in the prism position). Make the slit very short and get the zeroth order on the horizontal cross-wire. Rotate the grating and make final adjustments to get the side spectra at the same vertical height as the zeroth order.
 
-7. Clamp the grating table in such a way that the entire first order
-spectrum can be  brought into view by using the screw on the grating
-table.
+\item Change to the helium lamp. Check that the slit is vertical. Place the horizontal cross-wire along the direction of dispersion\,(unfortunately the cross-wires are not rotatable so you may have to  unscrew the eyepiece a little to achieve this). Now make the slit very long. Place a spectrum line at the cross-wire: it should coincide with the vertical wire. If not, rotate the slit head in the collimator until it is.
+
+\item Clamp the grating table in such a way that the entire first order spectrum can be  brought into view by using the screw on the grating table. (Choose the first order that you can see more of the spectrum at one time.)
+
+\end{enumerate}
+
 \newpage
 
 
 % Okay, this is new text for the USB cameras....
 
 
-{\bf Setting up the CCD 25mm camera system}
+{\bf Setting up the 25mm CCD camera system}
 
 \begin{center}
 \scalebox{0.9}{\includegraphics{ap3labspec3.ps}}
 \end{center}
 
-1. Set the yellow line of Helium centrally in the telescope eyepiece. 
-Place the metal cover over the
-grating, with the collimator lens inserted into its hole.
+\begin{enumerate}
 
-2. Replace the telescope with the CCD camera and 25mm lens as follows. 
-Loosen the saddle bases, and slide the telescope along the optical bench rearward from the 
-grating table. {\sl Take great care as the structure is very unbalanced\/}. Lock the saddles
-onto the bench again, and transfer the CCD camera to the front of the
-optical bench. Now transfer the telescope to the section of
-optical bench from where the CCD camera was taken, and screw it securely
-to the bench.
+\item Set the yellow line of helium centrally in the telescope eyepiece. (Optional: Place the metal cover over the grating, with the collimator lens inserted into its hole. This may reduce lights from other groups illuminating onto your grating mirror.)
 
-3. Check that the height of the CCD camera is correct, and that it is aligned 
-with the optical bench. Move it as far toward the grating as possible, and
-lock it onto the bench.
+\item Replace the telescope with the 25mm lens CCD camera as follows. Loosen the saddle bases, and slide the telescope along the optical bench rearward from the grating table. {\sl Take great care as the structure is very unbalanced}. Lock the saddles onto the bench again, and transfer the CCD camera to the front of the optical bench. Now transfer the telescope to the section of optical bench from where the CCD camera was taken, and screw it securely to the bench.
 
-4. Boot the laptop computer, and login with the passwd {\tt lab}. Once
-   you are logged in, plug-in the CCD camera USB cable (a green light
-   should light up on the back of the camera). 
+\item Check that the height of the CCD camera is correct, and that it is aligned with the optical bench. Move it as close to the grating as possible, and lock it onto the bench. (Ask the demonstrators for a piece black cloth to shield the light from other groups if needed. Sometimes the {\it unknown light source} could be the light from your lamp that did not go through the collimator but falls onto the grating mirror.)
 
-%On the laptop,
-%   double-click on the {\tt uEyeDemo} icon to start the camera
-%   software. The screen should now look something like this:
-%\begin{center}
-%\scalebox{0.8}{\includegraphics{screenshot.ps}}
-%\end{center}
-%\newpage
+\item Boot the laptop computer, and login with the passwd {\tt lab}. Once you are logged in, plug-in the CCD camera USB cable (a green light should light up on the back of the camera).
 
-5. The CCD camera is controlled via software called {\sc flycapture} which is installed on the 
-laptop, ask your demonstrator to show you how the software works. It is important to ensure that the CCD camera is set-up to read-out 16-bit images and that the exposure time is set to an appropriate value.  If everything is set-up properly, on the laptop display you should be able to see 
-continually updating images from the camera. 
+\item The CCD camera is controlled via the software called {\sc flycapture} which is installed on the laptop, ask your demonstrator to show you how the software works. It is important to ensure that the CCD camera is set-up to read-out {\bf 16-bit images} and that the exposure time is set to an appropriate value. If everything is set-up properly, on the laptop display you should be able to see continually updating images from the camera. 
 
-\newpage
+\item By adjusting the aperture and focus rings on the camera lens (and the width of the entrance slit on the collimator), find the settings required to produce a sharp image of the helium spectrum.
 
-6. By adjusting the aperture and focus rings on the camera lens (and
-   the width of the entrance slit on the collimator), find the
-   settings required to produce a sharp image of the Helium
-   spectrum. Ideally this should look something like this:
+\item {\bf You should remember to comment in your report on the significance of the aperture/focus ring settings which produce the best image quality.}
+
+\end{enumerate}
+
 
 \begin{picture}(450,10)
 \put(25,2){red}
@@ -780,17 +517,12 @@ continually updating images from the camera.
 \put(95,35){\line(0,1){15}}
 \put(91,0){\rotatebox{90}{6678}}
 
-
 \put(225,35){\line(0,1){15}}
 \put(221,0){\rotatebox{90}{5876}}
-
-
-
 
 \put(360,35){\line(0,1){15}}
 \put(360,35){\line(-2,-1){10}}
 \put(345,0){\rotatebox{90}{5048}}
-
 
 \put(364,35){\line(0,1){15}}
 \put(360,0){\rotatebox{90}{5015}}
@@ -798,10 +530,8 @@ continually updating images from the camera.
 \put(379,35){\line(0,1){15}}
 \put(375,0){\rotatebox{90}{4922}}
 
-
 \put(412,35){\line(0,1){15}}
 \put(408,0){\rotatebox{90}{4713}}
-
 
 \put(450,35){\line(0,1){15}}
 \put(446,0){\rotatebox{90}{4471}}
@@ -810,17 +540,9 @@ continually updating images from the camera.
 \put(458,0){\rotatebox{90}{4388}}
 \end{picture}
 }
-\noindent
-{\small Emission spectrum of a Helium discharge tube. The colours you
-  would be able to detect
-with your eyes are marked above the spectrum. The laboratory
-wavelengths of the various emission lines are marked below the spectrum.}
 
+{\small Emission spectrum of a Helium discharge tube. The colours you would be able to detect with your eyes are marked above the spectrum. The laboratory wavelengths of the various emission lines are marked below the spectrum.}
 
-\medskip
-
-7. {\bf You should remember to comment in your report on the significance
-   of the aperture/focus ring settings which produce the best image quality.}
 
 %{\bf Focussing the CCD camera}
 
@@ -881,109 +603,71 @@ wavelengths of the various emission lines are marked below the spectrum.}
 {\bf 3. IDENTIFYING UNKNOWN ELEMENTS}
 
 \noindent
-The aim of this experiment is to identify the emission line spectra of
-a series of different gas discharge tubes by measuring the wavelengths of the
-observed emission lines and comparing them to accurate laboratory values.
+The aim of this experiment is to identify the emission line spectra of a series of different gas discharge tubes by measuring the wavelengths of the observed emission lines and comparing them to accurate laboratory values.
 
-1. The first stage of the process is to have a reference image of the
-   spectrum of a known element, from which we can wavelength calibrate
-   our spectra. Wavelength calibration means fitting a simple
-   function which transforms between wavelength and measured x-pixel 
-   position on the camera image.
+\begin{enumerate}
 
-2. For this experiment you are going to use the Helium spectrum as the
-   your wavelength reference spectrum. Consequently, the first stage
-   is to take a reference image of the Helium spectrum which contains
-   as many emission lines as possible. To do this, you should rotate
-   the diffraction grating to place the bright yellow Helium line in
-   the centre of the camera image (as shown above).
+\item The first stage of the process is to have a reference image of the spectrum of a known element, from which we can wavelength calibrate our spectra. Wavelength calibration means fitting a simple function which transforms between wavelength and measured x-pixel position on the camera image.
 
-3. Once you are happy with your Helium spectrum (remember to check
-   that it's not saturated) save an image of it. Save the image as a (.pgm)
-   file {\bf(Important: the filename should be less than 15 characters long
-   and contain no spaces)}.
+\item For this experiment you are going to use the Helium spectrum as the your wavelength reference spectrum. Consequently, the first stage is to take a reference image of the Helium spectrum which contains as many emission lines as possible. To do this, you should rotate the diffraction grating to place the bright yellow helium line in the centre of the camera image (as shown above).
 
-4. Now you are ready to change the Helium tube for a discharge tube
-   with an ``unknown'' element in it.
+\item Once you are happy with your helium spectrum (remember to check that it's not saturated) save an image of it. Save the image as a (.pgm) file {\bf(Important: the filenames should be less than 15 characters long and contain no spaces)}.
+
+\item Now you are ready to change the Helium tube for a discharge tube with an `unknown' element in it.
 
 {\sl Note 1. SWITCH OFF the lamp power supply before changing lamps}\\
-{\sl Note 2. DO NOT TOUCH the lamps (for your safety -- they're hot; 
-for their safety -- you damage the glass). The demonstrator will swap 
-lamps.}
+{\sl Note 2. DO NOT TOUCH the lamps (for your safety -- they're hot; for their safety -- you damage the glass). The demonstrator will swap lamps.}
 
-\newpage
+\item When changing from the Helium tube to a new element, do not adjust the position of the camera or the diffraction grating. {\bf If these settings are changed the wavelength calibration image you have obtained of the Helium spectrum will be useless.}
 
-5. When changing from the Helium tube to a new element, do not adjust
-   the position of the camera or the diffraction grating. {\bf If these
-   settings are changed the wavelength calibration image you have
-   obtained of the Helium spectrum will be useless.}
+\item Take images of the spectra of two or three different gas discharge tubes. Remember, to get good quality images of the spectra of different elements you may well need to adjust the entrance slit, camera aperture and camera exposure time settings. Your demonstrator will be able to show you how to adjust the exposure time settings if necessary. Before obtaining your final images of the spectrum of each element, make sure that you are not saturating the camera (ask your demonstrator if you are not sure about this). Once you are happy with your images of the various spectra, save them as .pgm files on the laptop.
 
+\end{enumerate}
 
-6. Take images of the spectra of two or three different gas discharge
-   tubes. Remember, to get good quality images of the spectra of
-   different elements you may well need to adjust the entrace slit,
-   camera aperture and camera exposure time settings. Your
-   demonstrator will be able to show you how to adjust the exposure
-   time settings if necessary. Before obtaining your final images of
-   the spectrum of each element, make sure that you are not saturating
-   the camera (ask your demonstrator if you are not sure about
-   this). Once you are happy with your images of the various spectra,
-   save them as .pgm files on the laptop.
-
-   {\bf Remember that if some of the emission lines are faint, it is possible to to take
-several images and then add them together to boost the signal-to-noise
-ratio. Ask your demonstrator to show you how this is done in IRAF.}
+{\bf Remember that if some of the emission lines are faint, it is possible to to take several images and then add them together to boost the signal-to-noise ratio\,(50-100 images should be sufficient). Ask your demonstrator to show you how this is done in IRAF later in the analysis stage.}
 
 
+{\bf 4. COLOUR FILTERS}
 
-7. Once you have all of the necessary images saved on the laptop you will need to copy them onto a USB memory stick and transfer them to your account on the blackford server, as follows:
+The aim is to produce a graph of transmission versus wavelength for a set of three colour filters. This is a task that is routinely done by astronomers when they set up new colour photometric systems, or design filters to image just one spectral emission line, or design blocking filters for spectrometers on telescopes.
 
+\begin{enumerate}
 
-a) Log-in to one of the blackford thin clients.\\
+\item It is easiest to start with the green filter. Set up the continuum light source (bulb), and insert the filter in front of the slit. Seek a position and exposure/intensity setting that shows (a) no saturation of the CCD for filtered or unfiltered light, (b) full wavelength coverage of the part of the spectrum transmitted by the filter\footnote{You can check if the image is saturating by clicking on the {\tt ``horizontal line cut''} icon and examining the count levels in the image rows}.
 
-\medskip
+{\it If you have moved the grating or camera since doing the previous experiment, you need to take another helium image for wavelength calibration purposes. If you haven't changed the spectrograph set-up, then your previous wavelength calibration should still be valid.}
 
-b) Insert the memory stick into the USB port located on the side of the thin
-client you are logged into.\\
+\item Without altering any other part of the set-up, make and save {\sl unsaturated} images of the continuum source with and without the green filter (use the same exposure time for each). {\bf Remember that if the signal-to-noise you obtain for the transmission curve is too low, it is possible to take several images and add them up to improve the final signal-to-noise.}
 
-\medskip
+\item Also without altering any of the settings, make and save a `dark' frame by covering the camera lens with the lens cap before taking another exposure of the same duration. The dark frame is a measurement of the instrument noise produced in the absence of any signal.
 
-c) A USB icon should appear on the desktop, allowing you to then drag your files across
-to your home space (if in doubt, ask one of the demonstrators to help).\\
+\end{enumerate}
 
-8. The files that have been transferred onto the server are in the (.pgm) format - these need to be converted to (.fits).  A program for converting the files, along with instructions on its use, can be found at the following link: http://www.roe.ac.uk/~abr/teaching.html
+{\bf 5. WAVELENGTH CALIBRATION}
 
-\medskip
+\noindent
+Once you have all of the necessary images saved on the laptop you will need to copy them onto a USB memory stick and transfer them to your account on the blackford server, as follows:
+
+\begin{enumerate}
+\item Log-in to one of the blackford thin clients.
+
+\item Insert the memory stick into the USB port located on the side of the thin client you are logged into.
+
+\item A USB icon should appear on the desktop, allowing you to then drag your files across to your home space (if in doubt, ask one of the demonstrators to help).\\
+\end{enumerate}
+
+The files that have been transferred onto the server are in the (.pgm) format - these need to be converted to (.fits).  A program for converting the files, along with instructions on its use, can be found at the following link: http://www.roe.ac.uk/$\sim$mlam/teaching.html
 
 {\large {\bf Note: Saving plots for your report}}\\
-For the purposes of writing your final report you may want to include
-plots of the various stages of the reduction process. In {\sc iraf} you can generate
-postscript copies of the plots generated by {\it splot, identify} etc
-by typing: 
+For the purposes of writing your final report you may want to include plots of the various stages of the reduction process. In {\sc iraf} you can generate postscript copies of the plots generated by {\it splot, identify} etc by typing: 
 
 {\tt :.snap eps}
 
-in the appropriate window. This will produce a postscript ``.eps''
-copy of the {\sc iraf} window in your directory which can be viewed
-with ghostview (gv) and then printed.
+in the appropriate window. This will produce a postscript `.eps' copy of the {\sc iraf} window in your directory which can be viewed with ghostview (gv) and then printed.
 
-\newpage
+You are going to analyse the spectra using a set of software packages called {\sc iraf} (Image Reduction and Analysis Facility\footnote{http://iraf.noao.edu/}). If you have already completed the Computer Exercises then you should already be familiar with {\sc iraf}, and the process of wavelength calibration. If not, don't worry, full instructions are provided here as well.
 
-
-%\bigskip
-{\bf 3b. Wavelength Calibration}
-
-\noindent
-You are going to analyse the spectra using a set of software packages 
-called {\sc iraf} (Image Reduction and Analysis
-Facility\footnote{http://iraf.noao.edu/}). If you have already
-completed the Computer Exercises then you should already be familiar
-with {\sc iraf}, and the process of wavelength calibration. If not,
-don't worry, full instructions are provided here as well.
-
-In your home directory you will find a directory called {\tt
-  iraf}. Change into the {\tt iraf} directory (i.e. {\tt cd iraf}) and
-  then type:
+In your home directory you will find a directory called {\tt iraf}. Change into the {\tt iraf} directory (i.e. {\tt cd iraf}) and then type:
 
 {\tt \verb,xgterm -sb &,}
 
@@ -1000,7 +684,7 @@ called {\tt heliumspectrum.fits}, if you type:
 
 {\tt gaia heliumspectrum.fits \&}
 
-in an xterm (not the {\sc iraf} window), your Helium spectrum should appear in {\sc gaia}. For images taken with the CCD camera, the 
+in an xterm (not the {\sc iraf} window), your helium spectrum should appear in {\sc gaia}. For images taken with the CCD camera, the 
 dispersion direction of the spectra is horizontal, with blue
 wavelengths to the right and red wavelengths to the left. The basic
 operation of {\sc gaia} is all ``point and
@@ -1020,7 +704,7 @@ the middle y-pixel value is 480 (and the spectrum is 1280 pixels wide) you would
 {\tt imcopy heliumspectrum.fits[1:1280,480:480] helium\verb,_,trim.fits}
 
 which will produce a new, one dimensional spectrum running from x=1
-to x=1280, but only one pixel wide. This is a spectrum of flux versus
+to x=1280, but only one pixel in height. This is a spectrum of flux versus
 x-pixel value which is suitable for further analysis. You can take a
 first look at your one-dimensional spectrum using the {\sc iraf} task 
 {\it splot} (spectra-plot). At the command prompt type:
@@ -1035,7 +719,6 @@ it is imperative that you press ``q'' within the window first. The command
 line prompt should then reappear and it is safe to close the {\it splot} window - 
 if you do not do this {\sc iraf} will crash and you will have to start over.
 
-
 The next stage in the process is to perform the wavelength
 calibration. At present, the one-dimensional Helium spectrum is 
 simply flux versus x-pixel number, and we need to convert this into a 
@@ -1043,14 +726,12 @@ one-dimensional spectrum of flux versus wavelength. The wavelength
 calibration is performed using the {\sc iraf} task {\it identify}. 
 At the command prompt, type:
 
-{\tt identify helium\verb,_trim,.fits}
+{\tt identify helium\verb,_trim.fits,}
 
 Which should open a new window displaying the one-dimensional Helium
 spectrum. In order to make the identification of the arc lines easier, it
 may be worthwhile extending the new window horizontally (ask the
 demonstrator how to do this).
-
-
 
 To identify the lines, click on the {\it identify} window to activate
 it, place the cursor over the arc line of interest and press the ``m''
@@ -1076,14 +757,13 @@ To let {\sc iraf} know that you want to associate this dispersion
 solution with your one-dimensional spectrum, the {\sc iraf} package {\it hedit} (header edit) can be used. To add
 the keyword ``REFSPEC1'', type:
 
-{\tt hedit helium\verb,_trim,.fits fields=REFSPEC1 value=helium\verb,_trim,.fits add=yes}
+{\tt hedit helium\verb,_trim.fits, fields=REFSPEC1 value=helium\verb,_trim.fits, add=yes}
 
 And finally, to apply the wavelength calibration to your spectrum, type:
 
 {\tt dispcor helium\verb,_trim.fits helium_trim_wave.fits,}
 
-The task {\it dispcor} reads the keyword you have just added, pointing to the solution for {\sc helium_trim.fits}, and
-applies this to the image.
+The task {\it dispcor} reads the keyword you have just added, pointing to the solution for {\tt \verb,helium_trim.fits,}, and applies this to the image.
 You can now check that your wavelength solution is sensible by
 displaying your wavelength calibrated Helium spectrum using {\tt splot}:
 
@@ -1096,7 +776,7 @@ cursor and by pressing the space bar.
 
 
 \bigskip
-{\bf 3c. Identifying the unknown elements}
+{\bf 5a. Identifying the unknown elements}
 
 \noindent
 To do this you should first process each of your different spectral images into
@@ -1119,82 +799,28 @@ emission lines and compare them with standard laboratory values\footnote{
 Note that you need to estimate the errors in your result to assess the wavelength matches
 that you find. You can present the results in your laboratory report
 in either a tabular or graphical format (see GnuPlot tutorial in
-Appendix 3 for information on producing simple graphs).
+Appendix for information on producing simple graphs).
 
 
-{\bf 4. CALIBRATING A SET OF COLOUR FILTERS}
+{\bf 5b. Calibrating colour filters}
 
-The aim is to produce a graph of transmission versus wavelength 
-for a set of three colour filters. This is a task that is routinely
-done by astronomers when they set up new colour photometric systems,
-or design filters to image just one spectral emission line, or design
-blocking filters for spectrometers on telescopes.
+\begin{enumerate}
 
-1. It is easiest to start with the green filter. Set up the continuum
-light source (bulb), and insert the filter in front of the slit. Seek
-a position and exposure/intensity setting that shows (a) no saturation
-of the CCD for filtered or unfiltered light, (b) full wavelength
-coverage of the part of the spectrum transmitted by the filter\footnote{
-You can check if the image is saturating by clicking on the {\tt
-  ``horizontal line cut''} icon and examining the count levels in the image rows}.
-
-   {\it If you have moved the grating or camera since doing the previous
-   experiment, you need to take another Helium image for
-   wavelength calibration purposes. If you haven't changed the
-   spectrograph set-up, then your previous wavelength calibration
-   should still be valid.}
-
-2. Without altering any other part of the set-up,  make and save {\sl
-   unsaturated} images of the continuum source with and without the
-   green filter (use the same exposure time for each).
-
-3. Also without altering any of the settings, make and save a `dark' frame by
-   covering the camera lens with the lens cap before taking another
-   exposure of the same duration. The dark frame is a measurement of the
-   instrument noise produced in the absence of any signal.
-
-4. After transfering your images to blackford, you should first
-   subtract the dark frame from the filtered and unfiltered images using
-   the {\tt imarith} task in {\sc iraf}:
+\item After transferring your images to blackford, you should first subtract the dark frame from the filtered and unfiltered images using the {\tt imarith} task in {\sc iraf}:
 
    For example: {\tt \verb,imarith cont_spectrum.fits - dark_spectrum.fits cont_dark.fits,}
 
-5. After dark subtraction you should produce one-dimensional,
-   wavelength calibrated, spectra of the filtered and unfiltered images
-   following the procedure from the previous experiment.
+\item After dark subtraction you should produce one-dimensional, wavelength calibrated, spectra of the filtered and unfiltered images following the procedure from the previous experiment.
+
+\item Finally, by dividing the two spectra (i.e. filtered/unfiltered using {\sc imarith}) you can produce a curve of the filter transmission with wavelength. You should be able to display this transmission curve using {\sc splot} and include the plot in your final report (see page 11).
+
+\item Once you have successfully produced the transmission curve for the green filter, the final task is to produce identical curves for the orange/yellow and blue filters. The transmission curves for all three filters should be included in your final report. In the report you should comment on the different sources of uncertainty in your derivation of the filter curves, and how these could in principle be reduced.
+
+\end{enumerate}
+
+{\it For the yellow and blue filters you may need to adjust the exposure times to obtain images of the filtered spectrum with sufficient signal to analyse. In which case you will need to remember to take separate dark frames of the appropriate exposure time. Moreover, when you divide the filtered by the unfiltered spectrum to produce the transmission curve, you must first correct for any difference in exposure time (using {\tt imarith})}.
 
 \newpage
-
-6. Finally, by dividing the two spectra (i.e. filtered/unfiltered
-   using {\sc imarith}) you can produce a curve of
-   the filter transmission with wavelength. You should be able to
-   display this transmission curve using {\sc splot} and include the
-   plot in your final report (see page 11).
-
-   {\bf Remember that if the signal-to-noise you obtain for the transmission curve is too low, it is possible
-to take several images and add them up to improve the final signal-to-noise.}
-
-7. Once you have successfully produced the transmission curve for the
-   green filter, the final task is to produce identical curves for the
-   orange/yellow and blue filters. The transmission curves for all
-   three filters should be included in your final report. In the
-   report you should comment on the different sources of uncertainty in your
-   derivation of the filter curves, and how these could in principle
-   be reduced.
-
-   {\it For the yellow and blue filters you may need to
-   adjust the exposure times to obtain images of the
-   filtered spectrum with sufficient signal to analyse. In which case 
-   you will need to remember to take separate dark frames of the
-   appropriate exposure time. Moreover, when you divide the filtered
-   by the unfiltered spectrum to produce the transmission curve, you
-   must first correct for any difference in exposure time (using {\tt imarith})}.
-
-
-\newpage
-
-
-
 
 \pagestyle{empty}
 \vspace*{6cm}
@@ -1211,116 +837,76 @@ EXERCISES}
 \input{photom_manual.tex}
 \newpage
 \pagestyle{empty}
-~
-
 
 \input{quasar_manual.tex}
 \newpage
+\pagestyle{empty}
 
 \input{ap3lab_astrometry.tex}
 
 %\newpage
-
 %\scalebox{0.9}{\includegraphics{ap3labman_astrom1.ps}}
 
 %\newpage
-
 %\scalebox{0.9}{\includegraphics{ap3labman_astrom2.ps}}
 
 %\newpage
-
 %\scalebox{0.9}{\includegraphics{ap3labman_astrom3.ps}}
 
 %\newpage
-
 %\scalebox{0.9}{\includegraphics{ap3labman_astrom4.ps}}
 
-\newpage
-
+\clearpage
 \pagestyle{empty}
 
 \vspace{2cm} 
 
-
-
-
-
-
-\centerline{\hspace{-2cm}  \Huge APPENDIX 1}
-
-\vspace{4cm} 
-
-
-\centerline{\Large \hspace{-1cm} A CCD atlas of Helium/Neon/Argon spectra}
-
-\vspace{1cm} 
-
-
-\centerline{\hspace{-1cm} E. Carder (April 17, 1996)}
-
-
-\newpage
-
-
-\scalebox{0.85}{\includegraphics{spec0.ps}}
-
-\scalebox{0.85}{\includegraphics{spec1.ps}}
-\scalebox{0.85}{\includegraphics{spec2.ps}}
-\scalebox{0.85}{\includegraphics{spec3.ps}}
-\scalebox{0.85}{\includegraphics{spec4.ps}}
-\scalebox{0.85}{\includegraphics{spec5.ps}}
-
-
-
-
-\newpage
-
-\pagestyle{empty}
-
-\vspace{2cm} 
-
-\centerline{\Huge APPENDIX 2}
+\centerline{\Huge Appendix A - General Computing}
 
 \vspace{2cm}
 
-\leftline{\Large Basic Unix Commands}
-
-
+\begin{center}
+{\large{\bf 1. Basic Unix Commands}}
+\end{center}
 
 \begin{table}[h]
+\centering
 \begin{tabular}{lll}
 \hline
 Command&&Description\\
 \hline
-cd                &&  Change location to home directory\\
-cd dirname        &&  Change location to directory dirname\\
-cd ..             &&  Move up one directory in the tree\\
-pwd               && Print current directory\\
-ls                && List files in current directory\\
-ls -l             && List files in detail\\
-more f1           && Show contents of f1 on the screen\\
-mkdir dirname     &&  Create new directory dirname\\
-rmdir dirname     &&  Remove directory dirname\\
-mv f1 dirname     && Move file f1 to directory dirname\\
-mv f1 f2          && Rename file f1 as f2\\
-cp f1 dirname     && Copy file f1 to directory dirname\\
-cp f1 f2          && Copy file f1 to new file f2\\
-rm f1             && Remove file f1\\
-exit              && Close current terminal window\\
-passwd            && Change password\\
+cd                        && Change location to home directory\\
+cd {\it dirname}          && Change location to directory {\it dirname}\\
+cd ..                     && Move up one directory in the tree\\
+pwd                       && Print current directory\\
+ls                        && List files in current directory\\
+ls -l                     && List files in detail\\
+ls -h                     && List files in kB, MB, GB etc.\\
+ls -a                     && List files including hidden files\\
+ls -t                     && List files ordered by time\\
+more {\it f1}             && Show contents of {\it f1} on the screen\\
+mkdir {\it dirname}       && Create new directory {\it dirname}\\
+rmdir {\it dirname}       && Remove directory {\it dirname}\\
+mv {\it f1} {\it dirname} && Move file {\it f1} to directory {\it dirname}\\
+mv {\it f1} {\it f2}      && Rename file {\it f1} as {\it f2}\\
+cp {\it f1} {\it dirname} && Copy file {\it f1} to directory {\it dirname}\\
+cp {\it f1} {\it f2}      && Copy file {\it f1} to new file {\it f2}\\
+rm {\it f1}               && Remove file {\it f1}\\
+exit                      && Close current terminal window\\
+passwd                    && Change password\\
 \hline
 \end{tabular}
 \end{table}
 
-\medskip 
-
-\leftline{\Large Useful software packages}
+\begin{center}
+{\large{\bf 2. Useful software packages}}
+\end{center}
 
 For working with ascii data files on the Unix system it is probably
 easiest to use the basic text editor package: {\it emacs}. To open a new
 file with emacs, simply type at the command prompt:
 
-{\tt emacs myfile.txt (return)}
+{\tt emacs myfile.txt (return)}         
 
 For viewing and printing postscript files, use the software package
 {\it gv}. At the command prompt type:
@@ -1329,18 +915,21 @@ For viewing and printing postscript files, use the software package
 
 For plotting graphs and fitting functions the easiest package to use
 if probably {\it gnuplot}. On the next page there is a brief tutorial
-on how do use gnuplot.
+on how do use gnuplot.\\
 
-\leftline{\Large IRAF packages}
+\newpage
+\begin{center}
+{\large{\bf 3. IRAF packages}}
+\end{center}
+
 The packages that are required for the various computing exercises.  These are needed to run some of the tasks, and should be included in the {\it login.cl} file for {\sc iraf}, to save you manually calling them every time you run {\sc iraf}:
 
 {\it noao, onedspec, imred, generic, twodspec, apextract} \\
 
 \newpage
-\centerline{\Huge APPENDIX 3}
 
 \begin{center}
-{\large{\bf Gnuplot}}
+{\large{\bf 4. Gnuplot}}
 \end{center}
 This is designed to be a very brief tutorial on using the plotting
 package Gnuplot. More information can be found at: {\tt
@@ -1410,13 +999,120 @@ window. To exit Gnuplot type {\tt CNTR-D}.
 by gnuplot based on the datafile ``toydata.dat'.}
 \end{figure}
 
+
+\newpage
+\pagestyle{empty}
+
+\centerline{\hspace{-2cm}  \Huge Appendix B - Spectroscopy}
+
+\begin{center}
+{\large {\bf 1. Minimum Deviation Angle}}
+\end{center}
+%\fbox{
+%\begin{minipage}[t]{6in}
+%\vspace*{3mm}
+%\begin{center}
+%\includegraphics{ap3labspec2.ps}
+\centerline{\psfig{file=ap3labspec2.ps,width=8.0cm,angle=0}}
+%\end{center}
+
+The diagram shows a ray passing though a prism with refractive index $n$ and prism angle $A$. The ray is deviated by angle $D$. From geometry it is clear that:\\
+\begin{center}
+\begin{equation}
+(90 \degree - r_1) + A + (90\degree - r_2)=180\degree 
+\Rightarrow A=r_1 + r_2
+\end{equation}
+\end{center}
+and that the angle of deviation $D$ is given by:
+\begin{center}
+\begin{equation}
+D=(i_1 - r_1) + (i_2 - r_2) = i_1 + i_2 - A
+\end{equation}
+\end{center}
+The minimum deviation occurs when:
+\begin{center}
+\begin{equation}
+{\Large
+\frac{dD}{d i_1}=0 \Rightarrow \frac{d i_2}{d i_1}=-1
+}
+\end{equation}
+\end{center}
+
+A simple geometrical argument demonstrates that the minimum deviation must happen when $i_1 = i_2$ (i.e. when the light ray passes through the prism parallel to the base). If this were not the case, we could simply reverse the direction of the light path to prove that there are two distinct angles of minimum deviation, which is not true.
+
+At minimum deviation ($i_1=i_2$) we can see from equation 2 that: $i_1=\frac{D_{min}+A}{2}$\\
+
+And from Snell's law ($\sin i_1=n\sin r_1$), at minimum deviation ($r_1=r_2=A/2$) we have:
+$\sin i_1=n\sin\frac{A}{2}$ which in turn means that:
+\begin{equation}
+{\Large
+n\sin\frac{A}{2}=\sin\frac{D_{min}+A}{2}
+}
+\end{equation}
+This equation allows us to calculate the refractive index of the prism.
+\newpage
+\begin{center}
+{\large{\bf 2. Schuster's method}}
+\end{center}
+We have just demonstrated that $d i_2 = -d i_1$ at the minimum deviation. However, at an arbitrary angle of incidence, a small change in incidence angle $i_1$ gives rise to a change in emergence angle $i_2$ which can be written
+\[   \mbox{\rm d}i_2 = - K\:\mbox{\rm d}i_1    \]
+where $K$ can be calculated from Snell's law (e.g. $\sin i =n \sin r $) which, at each surface, gives
+\[  \mbox{\rm d}i = n (\cos r/\cos i)\mbox{\rm d}r.   \]
+Since $r_1 + r_2 = A$ (a constant) d$r_1$ = -d$r_2$ and hence
+\[  K = \left(\frac{\cos r_2}{\cos i_2}\right) / 
+    \left(\frac{\cos r_1}{\cos i_1}\right)       =
+     \sqrt{\frac{1-\mu^2\sec^2 r_1}{1-\mu^2\sec^2 r_2}},  \]
+To prove this result requires some algebra. You will need to use Snell's law, the identity $sin^2 \theta + cos^2\theta =1$ and make the substitution: $\mu^2 =  1 - 1/n^2$. Hence if $i_2<i_1$ then, since $r_2<r_1$ and $\sec r_2 <  \sec r_1$, it follows that $K<1$. This means that $|di_2|<|di_1|$. And conversely, if $i_2>i_1$ then $K>1$ and $|di_2|>|di_1|$.
+
+\vspace*{3mm}
+
+{\large Thus the result:  a small change in incidence angle $i_1$ makes a smaller change in emergence angle $i_2$ if the emergence angle is smaller than the incidence angle (and bigger if bigger).}\\
+
+\medskip
+
+\noindent
+By applying this principle we can focus the spectrometer. The basic idea is that you find the minimum deviation of the prism (at which point $i_1=i_2$). You then move the prism away from minimum deviation, such that $i_2>i_1$ and re-acquire the emission line with the telescope (position 1). From the above argument, at this position a small change in $i_1$ will result in a larger change in $i_2$ - which means that any defocus in the telescope will be exaggerated (which is why it is best to focus the telescope in this position). In the second prism position where you can see the emission line $i_2<i_1$. This means that any defocus in the collimator will be exaggerated at this position (which is why we focus the collimator in this position).
+
+%\vspace*{3mm}
+%$\end{minipage}
+%}
+
+Applying the principle to the spectrometer we see the following.
+
+When all the light rays incident on the prism are parallel then all are deviated by the same amount and emerge parallel, and so the focus position of the telescope remains the same whatever the deviation, and the image remains sharp  moving from one side of minimum deviation to the other. 
+
+However, if the incident beam is convergent or divergent on the prism (set so that the emergent rays are  more nearly normal, \ie average incidence angle is greater than average emergence angle), then the range of angles of emergent rays is {\sl less\/}: they are more parallel as they leave the prism and enter the telescope. In this case, the telescope should be focussed as its focus position will be more nearly at the focal plane. Moving to the other prism position at which the line is visible, the collimator beam is the more parallel, so the collimator should be focussed in the beam which -- since it is more parallel than is the telescope beam -- will bring the focus position of the collimator even closer to its focal plane. Alternating positions and focussing the more parallel beam will converge to the situation in which each beam is parallel, and the system is focussed for that wavelength.
+
+
 \newpage
 
-\centerline{\Huge APPENDIX 4}
+\begin{center}
+{\large{\bf 3. A CCD atlas of Helium/Neon/Argon spectra}}
+\end{center}
 
-\Large{Error Propagation:}\\
+\vspace{1cm} 
 
-\bigskip
+
+\centerline{\hspace{-1cm} E. Carder (April 17, 1996)}
+
+\vspace{5cm}
+
+\scalebox{0.85}{\includegraphics{spec0.ps}}
+\scalebox{0.85}{\includegraphics{spec1.ps}}
+\scalebox{0.85}{\includegraphics{spec2.ps}}
+\scalebox{0.85}{\includegraphics{spec3.ps}}
+\scalebox{0.85}{\includegraphics{spec4.ps}}
+
+
+
+
+\newpage
+
+\centerline{\Huge Appendix C - Astronomical Exercises}
+
+\begin{center}
+{\large{\bf 1. Error Propagation}}
+\end{center}
 
 \noindent
 Addition/Subtraction: If $f=a\pm b$, then $\sigma_f$ is given by:
@@ -1447,6 +1143,117 @@ Logarithms: If $f=\log_{e}(a)$ then $\sigma_f$ is given by:
 \Large{$\frac{\sigma_f}{f}=\frac{1}{a}$}
 \end{center}
 Remember that: $\log_{e}(a)=\log_{e}(10)\times \log_{10}(a)$
+
+
+
+\newpage
+\begin{center}
+{\large{\bf 2. Calculation of magnitude errors}}
+\end{center}
+
+The definition of magnitude is:
+
+\begin{equation}
+m = -2.5\times log_{10} C
+\end{equation}
+
+\noindent
+where $C$ is the object counts within the aperture. This can be re-written as:
+
+\begin{equation}
+m = -2.5/ln(10) \times ln C
+\end{equation}
+
+\noindent
+which can be differentiated to give:
+
+\begin{equation}
+dm = -2.5/ln(10) \times (\delta C/C)
+\end{equation}
+
+\noindent
+This is the equation that {\sc gaia} uses to calculate the magnitude
+error ($dm$) in terms of the error on the object counts within the
+aperture ($\delta C)$.
+
+You should remember that the total counts within the aperture ($t$)
+are a combination of the counts from the object ($C$) and the counts from the
+sky ($s$):
+
+\begin{equation}
+t= C + s 
+\end{equation}
+
+where $s$ is the mean sky counts multiplied by the number of pixels
+within the aperture. Therefore, the final error on the objects counts
+is the sum in quadrature of the error on the total counts and the
+error on the sky counts:
+
+\begin{equation}
+\delta C = \sqrt( \delta t^2 + \delta s^2 )
+\end{equation}
+
+Moreover, due to the fact that we are dealing with Poisson/counting
+errors, we can also assume that:
+
+\begin{equation}
+\delta t = \sqrt(t)\,\, {\rm and}\,\, \delta s = \sqrt(s)
+\end{equation}
+
+which means that the error on the object counts ($\delta C$) is
+simply:
+
+\begin{equation}
+\delta C = \sqrt(t+s)
+\end{equation}
+
+substituting this back into Eqn 7 then allows you to calculate the
+magnitude error ($dm$).
+
+
+\newpage
+\begin{center}
+{\large{\bf 3. Solving Polyxena's motion to give its distance from Sun}}
+\end{center}
+\centerline{\psfig{file=ap3labasteroid.ps,width=15.0cm,angle=0}}
+
+Over time $t$, the asteroid has moved by an angle $\theta$, so
+\begin{align*}
+D_{A} &= v_{A}t \\
+D_{E} &= v_{E}t.
+\end{align*}
+Subtracting one by the other, we have
+\begin{equation*}
+D_{E}-D_{A}=(v_{E}-v_{A})t
+\end{equation*}
+By trigonometry, we also know that
+\begin{equation*}
+\theta = \frac{D_{E}-D_{A}}{a-1},
+\end{equation*}
+hence
+\begin{equation*}
+\theta = \frac{(v_{E}-v_{A})t}{a-1}
+\end{equation*}
+Assuming the Earth and the asteroid follow two concentric circular orbits, by equating the Gravitational force to the centripetal force for the Earth,
+\begin{equation*}
+\frac{GM_{\odot}M_{E}}{r_{E}^{2}} = \frac{M_{E}v_{E}^{2}}{r_{E}};
+\end{equation*}
+and for the asteroid,
+\begin{equation*}
+\frac{GM_{\odot}M_{A}}{r_{A}^{2}} = \frac{M_{A}v_{A}^{2}}{r_{A}}
+\end{equation*}
+Solving these two relations gives
+\begin{equation*}
+v_{A} = \frac{v_{E}}{\sqrt{r_{A}}} = \frac{v_{E}}{a}.
+\end{equation*}
+Hence,
+\begin{align*}
+\theta &= \frac{v_{E}(1-\frac{1}{\sqrt{a}})t}{a-1} \\
+\frac{\theta}{v_{E}t} &= \frac{1}{a-1} \frac{\sqrt{a}-1}{\sqrt{a}} \\
+&= \frac{1}{(\sqrt{a}+1)(\sqrt{a}-1)} \frac{\sqrt{a}-1}{\sqrt{a}} \\
+\sqrt{a} &= \frac{-1\pm \sqrt{1+\frac{4v_{E}t}{\theta}}}{2}.
+\end{align*}
+
 
 \end{document}
 
