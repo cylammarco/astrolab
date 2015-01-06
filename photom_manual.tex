@@ -8,19 +8,7 @@
 
 {\bf \large{1. Introduction}}
 
-This exercise involves the analysis of two images of a cluster of
-galaxies which have been obtained using a
-$v-$filter ($\lambda_{centre}=5500$\AA) and an $i-$filter ($\lambda_{centre}=8000$\AA). 
-The first stage in the process is to use images of a standard star
-taken through the $v-$filter and $i-$filter at two different airmasses
-(elevations) to compute the correction due to atmospheric
-absorption and to calculate the zero-point necessary to convert
-instrumental magnitudes onto a standard magnitude system. The second stage is to accurately measure
-the $v-$ and $i-$magnitudes of the galaxies in the cluster images and
-to compute their $(v-i)$ colours. Based on their $(v-i)$
-colours the aim of the exercise is to determine which of the
-galaxies are likely cluster members, and which are simply
-foreground galaxies which just happen to lie along the same line of sight.
+This exercise involves the analysis of two images of a cluster of galaxies which have been obtained using a $v-$filter ($\lambda_{centre}=5500$\AA) and an $i-$filter ($\lambda_{centre}=8000$\AA). The first stage in the process is to use images of a standard star taken through the $v-$filter and $i-$filter at two different airmasses (elevations) to compute the correction due to atmospheric absorption and to calculate the zero-point necessary to convert instrumental magnitudes onto a standard magnitude system. The second stage is to accurately measure the $v-$ and $i-$magnitudes of the galaxies in the cluster images and to compute their $(v-i)$ colours. Based on their $(v-i)$ colours the aim of the exercise is to determine which of the galaxies are likely cluster members, and which are simply foreground galaxies which just happen to lie along the same line of sight.
 
 \noindent
 In your home directory there should be six files present, namely:
@@ -32,32 +20,15 @@ In your home directory there should be six files present, namely:
 \verb,standard_i_a.sdf,\\
 \verb,standard_i_b.sdf,
 
-The first two files are the images of the galaxy cluster taken through
-the $v-$ and $i-$filters (.sdf simply indicates that the images are stored in
-a particular image format). The other four files are images of the
-same standard star taken through the $v-$ and $i-$filters at two
-different values of airmass; $\sec \theta=1.0$ (a) and $\sec \theta=1.5$ (b).
-Your first task is to use the observations of the
-standard star to workout the absorption of the atmosphere in the $v-$
-and $i-$filters as a function of airmass ($\sec \theta$).
+The first two files are the images of the galaxy cluster taken through the $v-$ and $i-$filters (.sdf simply indicates that the images are stored in a particular image format). The other four files are images of the same standard star taken through the $v-$ and $i-$filters at two different values of airmass; $\sec \theta=1.0$ (a) and $\sec \theta=1.5$ (b). Your first task is to use the observations of the standard star to workout the absorption of the atmosphere in the $v-$ and $i-$filters as a function of airmass ($\sec \theta$).
 
 {\bf \large{2. Standard star analysis}}
 
-All of the photometry measurements in this exercise are going to be
-performed using a software package called {\sc gaia} which allows you 
-to display, manipulate and analyse two dimensional astronomical images. The first thing to
-try is to display one of the standard star images so, for example, type:
+All of the photometry measurements in this exercise are going to be performed using a software package called {\sc gaia} which allows you to display, manipulate and analyse two dimensional astronomical images. The first thing to try is to display one of the standard star images so, for example, type:
 
 {\tt \verb,gaia standard_i_a.sdf &,}
 
-which should load a {\sc gaia} window showing an image of the standard
-star (see Fig 1). The basic operation of {\sc gaia} is all ``point and
-click'' and is fairly intuitive (online help is available by
-clicking on the {\sc help} tab in the top right corner of the {\sc
-gaia} window). You should spend some time familiarizing yourself with
-how {\sc gaia} operates, learning how to zoom in and out, change the
-display levels etc. If you are having difficulties, ask your lab
-demonstrator to show you how the basic features work.
+which should load a {\sc gaia} window showing an image of the standard star (see Fig 1). The basic operation of {\sc gaia} is all ``point and click'' and is fairly intuitive (online help is available by clicking on the {\sc help} tab in the top right corner of the {\sc gaia} window). You should spend some time familiarizing yourself with how {\sc gaia} operates, learning how to zoom in and out, change the autocut levels etc. If you are having difficulties, ask your lab demonstrator to show you how the basic features work.
 
 \newpage
 
@@ -70,84 +41,29 @@ demonstrator to show you how the basic features work.
 
 \begin{figure}
 \centerline{\psfig{file=fig2.ps,width=8.0cm,angle=0}}
-\caption{{\sc gaia} window displaying the image of a standard star
-with a circular aperture overlaid (inner circle). The annulus defined
-by the two outer circles is used by {\sc gaia} to measure the data
-counts coming from the sky background.}
+\caption{{\sc gaia} window displaying the image of a standard star with a circular aperture overlaid (inner circle). The annulus defined by the two outer circles is used by {\sc gaia} to measure the data counts coming from the sky background.}
 \end{figure}
-The first measurements you need to make are to determine the
-instrumental magnitudes of the standard stars. Instrumental magnitudes
-are simply $m = -2.5\log_{10} C$; where $C$ is the data-counts from
-the object, which are proportional to the object's
-flux\footnote{instrumental magnitudes are so-called because they
-are specific to a particular instrument/telescope combination}. 
+The first measurements you need to make are to determine the instrumental magnitudes of the standard stars. Instrumental magnitudes are simply $m = -2.5\log_{10} C$; where $C$ is the data-counts from the object, which are proportional to the object's flux\footnote{instrumental magnitudes are so-called because they are specific to a particular instrument/telescope combination}. 
 
-When you have one of the standard star images displayed 
-in {\sc gaia}, select the ``Image-Analysis'' tab located at
-the top of the {\sc gaia} window, and then select ``Aperture photometry''
-and ``Results in magnitudes'' from the sub-menus which appear. 
-Before measuring any magnitudes it is necessary to set 
-the zero-point parameter (top of aperture photometry window) to zero. 
-This tells {\sc gaia} that we don't know the proper zero-point and
-that we are therefore calculating instrumental magnitudes. 
+When you have one of the standard star images displayed in {\sc gaia}, select the ``Image-Analysis'' tab located at the top of the {\sc gaia} window, and then select ``Aperture photometry'' and ``Results in magnitudes'' from the sub-menus which appear. Before measuring any magnitudes it is necessary to set the zero-point parameter (top of aperture photometry window) to zero. This tells {\sc gaia} that we don't know the proper zero-point and that we are therefore calculating instrumental magnitudes. 
 
-To measure a magnitude, click the ``define object aperture'' tab and
-then, with the mouse, drag out a circular aperture which fully
-encloses the flux of the standard star. {\sc gaia} will then automatically define
-an annulus enclosed by two yellow circles, within which it will
-measure the data counts coming from the sky background (see Fig 2). Now click on the
-``calculate results'' tab to calculate the magnitude of the star within your chosen aperture. 
-{\sc gaia} will now calculate the instrumental magnitude and the
-appropriate magnitude error. {\sc gaia} will also report the ``Sum in
-aperture'', which is the data counts within your aperture coming from
-the star (i.e. total data counts minus the sky background. You should
-check that the magnitude value is simply $-2.5\log_{10} C$; where
-$C$ is the ``Sum in aperture''). Note down the data counts, magnitude
-and magnitude error. Repeat this process for all four standard star images.
-{\bf To obtain the most accurate results it is best to employ the same
-sized apertures on each standard star image.}
+To measure a magnitude, click the ``define object aperture'' tab and then, with the mouse, drag out a circular aperture which fully encloses the flux of the standard star. {\sc gaia} will then automatically define an annulus enclosed by two yellow circles, within which it will measure the data counts coming from the sky background (see Fig 2). Now click on the ``calculate results'' tab to calculate the magnitude of the star within your chosen aperture. {\sc gaia} will now calculate the instrumental magnitude and the appropriate magnitude error. {\sc gaia} will also report the ``Sum in aperture'', which is the data counts within your aperture coming from the star (i.e. total data counts minus the sky background. You should check that the magnitude value is simply $-2.5\log_{10} C$; where $C$ is the ``Sum in aperture''). Note down the data counts, magnitude and magnitude error. Repeat this process for all four standard star images. {\bf To obtain the most accurate results it is best to employ the same sized apertures on each standard star image.}
 
 
 \newpage
-{\bf In your report you should demonstrate with an example that you
-understand how {\sc gaia} calculates the magnitude errors (see notes
-at the end of this section).}
+{\bf In your report you should demonstrate with an example that you understand how {\sc gaia} calculates the magnitude errors (see notes at the end of this section).}
 
 
 
 {\large{\bf 4. Correcting for atmospheric extinction}}
 
-At any airmass ($\sec \theta$) the instrumental $v-$magnitude is:
-\[   m_v({\rm at\ airmass\ }\sec \theta) = m_v(0) + e_v\sec \theta   \]
-where $m_v(0)$ is the $v-$filter instrumental magnitude that would be obtained if 
-observing from above the atmosphere. The parameter $e_v$ is referred
-to as the extinction coefficient, and describes how much the observed
-instrumental magnitude is affected by atmospheric absorption as a
-function of airmass ($\sec \theta$).
+At any airmass ($\sec \theta$) the instrumental $v-$magnitude is: \[   m_v({\rm at\ airmass\ }\sec \theta) = m_v(0) + e_v\sec \theta   \] where $m_v(0)$ is the $v-$filter instrumental magnitude that would be obtained if  observing from above the atmosphere. The parameter $e_v$ is referred to as the extinction coefficient, and describes how much the observed instrumental magnitude is affected by atmospheric absorption as a function of airmass ($\sec \theta$).
 
-The key to determining the extinction coefficient is to observe the
-{\it same} star at two different airmasses. You should be able to show
-that for two stars observed with the $v-$filter at two different
-airmasses, it follows from the above equation that:
-\[   e_v = \frac{m_v({\rm at\ airmass\ }\sec \theta_2)-m_v({\rm at\
-airmass\ }\sec \theta_1)}{\sec \theta_2 - \sec \theta_1}   \]
-and similarly for $e_i$. Use this equation to calculate the values of $e_v$ and $e_i$ and
-estimate the corresponding errors (you can assume that the values of
-$\sec \theta$ carry negligible uncertainty).
+The key to determining the extinction coefficient is to observe the {\it same} star at two different airmasses. You should be able to show that for two stars observed with the $v-$filter at two different airmasses, it follows from the above equation that: \[   e_v = \frac{m_v({\rm at\ airmass\ }\sec \theta_2)-m_v({\rm at\ airmass\ }\sec \theta_1)}{\sec \theta_2 - \sec \theta_1}   \] and similarly for $e_i$. Use this equation to calculate the values of $e_v$ and $e_i$ and estimate the corresponding errors (you can assume that the values of $\sec \theta$ carry negligible uncertainty).
 
 {\large{\bf 5. Converting from instrumental to standard magnitudes}}
 
-Armed with knowledge of the atmospheric absorption as a function of
-airmass it is possible to convert observed magnitudes to ``above
-atmosphere'' values. It is known from previous observations that on the
-standard magnitude system the standard star has above atmosphere
-magnitudes of $v=17.700 \pm 0.005$ and $i=17.500\pm 0.005$. The $v-$filter
-and $i-$filter images of the galaxy cluster were obtained at zenith 
-($\sec \theta=1$), the same airmass as \verb,star_v_a.sdf and star_i_a.sdf,.
-Use these two pieces of information to calculate the zero points
-necessary to convert from instrumental magnitudes to above atmosphere
-magnitudes on the standard magnitude system for the cluster galaxy
-images; i.e find $ZP$:
+Armed with knowledge of the atmospheric absorption as a function of airmass it is possible to convert observed magnitudes to ``above atmosphere'' values. It is known from previous observations that on the standard magnitude system the standard star has above atmosphere magnitudes of $v=17.700 \pm 0.005$ and $i=17.500\pm 0.005$. The $v-$filter and $i-$filter images of the galaxy cluster were obtained at zenith ($\sec \theta=1$), the same airmass as \verb,star_v_a.sdf and star_i_a.sdf,. Use these two pieces of information to calculate the zero points necessary to convert from instrumental magnitudes to above atmosphere magnitudes on the standard magnitude system for the cluster galaxy images; i.e find $ZP$:
 \[
 m_{stan} = -2.5\log_{10} C  + ZP 
 \]
@@ -155,48 +71,17 @@ where $m_{stan}$ is the above atmosphere magnitude of the standard star.
 
 {\large{\bf 6. Determining cluster membership}}
 
-Now that you have calculated the appropriate zero points for the
-cluster galaxy images we are in a position to measure magnitudes and
-$(v-i)$ colours of the potential cluster galaxies on the standard
-magnitude system. The procedure is very straightforward, simply
-display the $v-$filter cluster image in {\sc gaia} and measure the
-magnitudes, magnitude errors and $(x,y)$ positions of each
-galaxy. Repeat the process for the $i-$filter image and produce a
-table which lists the $(x,y)$ position, $v-$mag, $v-$mag error,
-$i-$mag, $i-$mag error, $(v-i)$ and $(v-i)$ error for each
-galaxy. 
+Now that you have calculated the appropriate zero points for the cluster galaxy images we are in a position to measure magnitudes and $(v-i)$ colours of the potential cluster galaxies on the standard magnitude system. The procedure is very straightforward, simply display the $v-$filter cluster image in {\sc gaia} and measure the magnitudes, magnitude errors and $(x,y)$ positions of each galaxy. Repeat the process for the $i-$filter image and produce a table which lists the $(x,y)$ position, $v-$mag, $v-$mag error, $i-$mag, $i-$mag error, $(v-i)$ and $(v-i)$ error for each galaxy. 
 
-{\bf When making these measurements you should think about the
-importance of aperture-size choice on the $v-$ and $i-$filter images.}
+{\bf When making these measurements you should think about the importance of aperture-size choice on the $v-$ and $i-$filter images.}
 
-Once you have your table of results, the next stage is to plot 
-$(v-i)$ colour versus $i-$magnitude. You are entirely free to
-produce this plot using any software you are familiar with, but 
-for convenience a help sheet has been included in the appendix 
-describing how to produce suitable plots with a software package
-called Gnuplot\footnote{http://www.gnuplot.info/}.
+Once you have your table of results, the next stage is to plot $(v-i)$ colour versus $i-$magnitude. You are entirely free to produce this plot using any software you are familiar with, but for convenience a help sheet has been included in Appendix A describing how to produce suitable plots with a software package called Gnuplot\footnote{http://www.gnuplot.info/}.
 
-It is known from previous observations that galaxies which lie at 
-the centre of clusters tend to be massive and largely populated by old stars
-which formed many Gyrs ago. As a result of their old age, galaxies at
-the centre of clusters tend to have a red $(v-i)$ colours; i.e
-$(v-i)\geq1.5$. Consequently, any galaxy significantly bluer that
-$(v-i)=1.5$ is likely to be an unrelated foreground galaxy.
-Use this information to decide which of the galaxies are cluster 
-members, and which are foreground interlopers.
+It is known from previous observations that galaxies which lie at the centre of clusters tend to be massive and largely populated by old stars which formed many Gyrs ago. As a result of their old age, galaxies at the centre of clusters tend to have a red $(v-i)$ colours; i.e $(v-i)\geq1.5$. Consequently, any galaxy significantly bluer that $(v-i)=1.5$ is likely to be an unrelated foreground galaxy. Use this information to decide which of the galaxies are cluster members, and which are foreground interlopers.
 
-Re-plot the $(v-i)$ versus $i-$magnitude diagram for just those galaxies which
-are likely cluster members. Does there appear to be a relationship
-between $(v-i)$ colour and $i-$magnitude? Due to the way galaxies
-evolve in cluster environments, it is known observationally
-that there is a relationship between the brightness of a cluster
-galaxy and it's colour, with brighter galaxies having redder colours
-(the so-called ``red sequence''). Using Gnuplot (or any other software you choose) fit a
-function of the form:\\
+Re-plot the $(v-i)$ versus $i-$magnitude diagram for just those galaxies which are likely cluster members. Does there appear to be a relationship between $(v-i)$ colour and $i-$magnitude? Due to the way galaxies evolve in cluster environments, it is known observationally that there is a relationship between the brightness of a cluster galaxy and it's colour, with brighter galaxies having redder colours (the so-called ``red sequence''). Using Gnuplot (or any other software you choose) fit a function of the form:\\
 \begin{center}
 $(v-i)$=$a\times i-$mag+$b$ 
 \end{center}
 \noindent
-to your data and produce a final plot of $(v-i)$ versus $i-$magnitude with your
-best-fitting function overplotted. Does your data display a convincing
-red sequence?
+to your data and produce a final plot of $(v-i)$ versus $i-$magnitude with your best-fitting function overplotted. Does your data display a convincing red sequence?

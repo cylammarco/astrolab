@@ -73,8 +73,9 @@ SPECTROSCOPY \\
 \hspace*{2cm} Equipment inventory\\
 \hspace*{2cm}1. Adjustment of the prism spectrometer\\
 \hspace*{2cm}2. Adjustment of the grating spectrometer\\
-\hspace*{2cm}3. Identifying an unknown element\\
-\hspace*{2cm}4. Calibrating a colour filter
+\hspace*{2cm}3. Identifying unknown elements\\
+\hspace*{2cm}4. Colour filters\\
+\hspace*{2cm}5. Wavelength Calibration
 
 ASTRONOMICAL EXERCISES \\
 \hspace*{2cm}1. CCD photometry\\
@@ -394,10 +395,6 @@ An important part of this module of the laboratory course is to finish where you
 
 \newpage
 
-
-
-
-
 {\bf 1. ADJUSTMENT OF PRISM SPECTROMETER}
 
 {\bf Levelling the Spectrometer}
@@ -413,7 +410,7 @@ An important part of this module of the laboratory course is to finish where you
 
 \item Open the slit wide and illuminate by a white light source (use a lens to focus filament on slit). Set the telescope 180$^\circ$ from the collimator and adjust its height to receive beam from  collimator. Level the telescope with the spirit level. Reduce the brightness of the beam and shorten the slit before looking through the eyepiece in the plate at the back of the telescope. Adjust the level using the screw on the saddle at the back of the telescope until the image of the slit is centred on the exit slot. Check that the collars on the saddle stems are set and locked with Allen screws.
 
-\item Adjust and level the prism table, as follows.  Place the prism on table. Replace the white light with a helium lamp. Take great care with the transformer, which develops a high open-circuit voltage: make sure that the lamp is inserted before you switch on the transformer. Find the minimum deviation\,(See appendix) of the prism and bring the telescope round to this position. Shorten the slit and re-level the telescope with the fine screw\,(the bench may not be perfectly levelled). Check the levelling of the prism table  by making sure that the spectrum remains at the same height  when the prism is rotated through the spectrum on both sides of minimum deviation. Small  adjustments to the prism table levelling screws may be needed to make this perfect. For levelling, the shorter the slit, the more critically you can make this adjustment.
+\item Adjust and level the prism table, as follows.  Place the prism on table. Replace the white light with a helium lamp. Take great care with the transformer, which develops a high open-circuit voltage: make sure that the lamp is inserted before you switch on the transformer. Find the minimum deviation\,(See Appendix B) of the prism and bring the telescope round to this position. Shorten the slit and re-level the telescope with the fine screw\,(the bench may not be perfectly levelled). Check the levelling of the prism table  by making sure that the spectrum remains at the same height  when the prism is rotated through the spectrum on both sides of minimum deviation. Small  adjustments to the prism table levelling screws may be needed to make this perfect. For levelling, the shorter the slit, the more critically you can make this adjustment.
 
 \item If the spectrum lines are not vertical\,(i.e., not at right angles to dispersion), check the slit head, which is slightly rotatable\,(black knobs to the sides of the slit mount at the end of the collimator tube). Make the slit long for this adjustment.
 
@@ -424,7 +421,7 @@ An important part of this module of the laboratory course is to finish where you
 \includegraphics{ap3labspec1.ps}
 \end{center}
 
-{\large {\bf Focussing the collimator by Schuster's method}\footnote{SCHUSTER, A., 1879, `An easy Method for Adjusting the Collimator of a Spectroscope',  {\sl Phil. Mag.} {\bf 7}, 95} {\bf (See Appendix)}}
+{\large {\bf Focussing the collimator by Schuster's method}\footnote{SCHUSTER, A., 1879, `An easy Method for Adjusting the Collimator of a Spectroscope',  {\sl Phil. Mag.} {\bf 7}, 95} {\bf (See Appendix B)}}
 
 \begin{enumerate}
 \item Set the prism at minimum deviation on one spectrum line, e.g., green (see Helium picture and tables).  Close the slit to fairly narrow width. Rotate the prism table away from minimum deviation, increasing angle of {\em incidence} on  prism; we'll call this prism position 1'. Then move the telescope to find the line.
@@ -473,7 +470,7 @@ An important part of this module of the laboratory course is to finish where you
 {\bf Setting up the 25mm CCD camera system}
 
 \begin{center}
-\scalebox{0.9}{\includegraphics{ap3labspec3.ps}}
+\centerline{\psfig{file=ap3labspec3.ps,width=10.0cm}}
 \end{center}
 
 \begin{enumerate}
@@ -626,7 +623,7 @@ The aim of this experiment is to identify the emission line spectra of a series 
 
 {\bf Remember that if some of the emission lines are faint, it is possible to to take several images and then add them together to boost the signal-to-noise ratio\,(50-100 images should be sufficient). Ask your demonstrator to show you how this is done in IRAF later in the analysis stage.}
 
-
+\vspace{1cm}
 {\bf 4. COLOUR FILTERS}
 
 The aim is to produce a graph of transmission versus wavelength for a set of three colour filters. This is a task that is routinely done by astronomers when they set up new colour photometric systems, or design filters to image just one spectral emission line, or design blocking filters for spectrometers on telescopes.
@@ -643,6 +640,7 @@ The aim is to produce a graph of transmission versus wavelength for a set of thr
 
 \end{enumerate}
 
+\newpage
 {\bf 5. WAVELENGTH CALIBRATION}
 
 \noindent
@@ -676,7 +674,7 @@ and from within the new terminal which appears, type: {\tt cl}
 
 \noindent
 This will start {\sc iraf} which should then display a list of available
-packages. The list of packages that these exercises will use are listed in the Appendix. These should be typed into the {\it login.cl} file so that you can access them without manually loading them in each time you access {\sc iraf} - the demonstrator should show you how to do this. To exit {\sc iraf} simply type {\tt logout}.
+packages. The list of packages that these exercises will use are listed in the Appendix A. These should be typed into the {\it login.cl} file so that you can access them without manually loading them in each time you access {\sc iraf} - the demonstrator should show you how to do this.
 
 Now type {\tt cd ..} to move up a directory, back to where
 your data are located \footnote{to exit {\sc iraf} at any time simply type {\tt logout}}. To display the various spectra you are going to use a software package called {\sc gaia}. For example, if your Helium calibration spectrum is
@@ -717,7 +715,7 @@ to perform many basic analysis tasks (ask the demonstrator to show you
 how it works).  Note that if you need to close {\it splot} for any reason,
 it is imperative that you press ``q'' within the window first. The command
 line prompt should then reappear and it is safe to close the {\it splot} window - 
-if you do not do this {\sc iraf} will crash and you will have to start over.
+if you do not do this, {\sc iraf} will crash and you will have to start over.
 
 The next stage in the process is to perform the wavelength
 calibration. At present, the one-dimensional Helium spectrum is 
@@ -772,10 +770,6 @@ displaying your wavelength calibrated Helium spectrum using {\tt splot}:
 and by measuring the wavelengths of the emission lines using the
 cursor and by pressing the space bar.
 
-\newpage
-
-
-\bigskip
 {\bf 5a. Identifying the unknown elements}
 
 \noindent
@@ -799,8 +793,9 @@ emission lines and compare them with standard laboratory values\footnote{
 Note that you need to estimate the errors in your result to assess the wavelength matches
 that you find. You can present the results in your laboratory report
 in either a tabular or graphical format (see GnuPlot tutorial in
-Appendix for information on producing simple graphs).
+Appendix A for information on producing simple graphs).
 
+\newpage
 
 {\bf 5b. Calibrating colour filters}
 
@@ -812,7 +807,7 @@ Appendix for information on producing simple graphs).
 
 \item After dark subtraction you should produce one-dimensional, wavelength calibrated, spectra of the filtered and unfiltered images following the procedure from the previous experiment.
 
-\item Finally, by dividing the two spectra (i.e. filtered/unfiltered using {\sc imarith}) you can produce a curve of the filter transmission with wavelength. You should be able to display this transmission curve using {\sc splot} and include the plot in your final report (see page 11).
+\item Finally, by dividing the two spectra (i.e. filtered/unfiltered using {\sc imarith}) you can produce a curve of the filter transmission with wavelength. You should be able to display this transmission curve using {\sc splot} and include the plot in your final report (see Appendix A).
 
 \item Once you have successfully produced the transmission curve for the green filter, the final task is to produce identical curves for the orange/yellow and blue filters. The transmission curves for all three filters should be included in your final report. In the report you should comment on the different sources of uncertainty in your derivation of the filter curves, and how these could in principle be reduced.
 
