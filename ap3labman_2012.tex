@@ -917,9 +917,31 @@ on how do use gnuplot.\\
 {\large{\bf 3. IRAF packages}}
 \end{center}
 
-The packages that are required for the various computing exercises.  These are needed to run some of the tasks, and should be included in the {\it login.cl} file for {\sc iraf}, to save you manually calling them every time you run {\sc iraf}:
+The packages that are required for the various computing exercises.  These are needed to run some of the tasks, and should be included in the {\it login.cl} file for {\sc iraf}, to save you manually calling them every time you run {\sc iraf}. After opening the {\it login.cl} file, look for the line 
 
-{\it noao, onedspec, imred, generic, twodspec, apextract} \\
+{\sc \# List any packages you want loaded at login time, ONE PER LINE.}
+
+There should be four default packages already included:
+
+\begin{tabular}{ll}
+{\sc images}          &\# General image operators\\
+{\sc plot}            &\# Graphics tasks\\
+{\sc dataio}          &\# Data conversions, import export\\
+{\sc lists}           &\# List processing
+\end{tabular}
+
+Append the followings to the list:
+
+\begin{tabular}{ll}
+{\sc noao}            &\# A package developed by the National Optical Astronomy Observatories\\
+{\sc onedspec}        &\# One dimensional spectral red \& analysis package\\
+{\sc twodspec}        &\# Two dimensional spectral red \& analysis package\\
+{\sc imred}           &\# Image reductions package\\
+{\sc generic}         &\# Generic image reductions tools\\
+{\sc apextract}       &\# Aperture Extraction Package
+\end{tabular}
+
+To access the manual of each of the packages, type {\sc help package-name}.
 
 \newpage
 
