@@ -933,10 +933,19 @@ on how do use gnuplot.\\
 
 \newpage
 \begin{center}
-{\large{\bf 3. IRAF packages}}
+{\large{\bf 3. IRAF packages and user initialisation}}
 \end{center}
+In order to use IRAF, the user has to type a series of commands in the terminal - as done step by step below:
 
-The packages that are required for the various computing exercises.  These are needed to run some of the tasks, and should be included in the {\it login.cl} file for {\sc iraf}, to save you manually calling them every time you run {\sc iraf}. After opening the {\it login.cl} file, look for the line 
+{\tt cd \$HOME}\\
+{\tt mkdir iraf ; cd iraf}\\
+{\tt mkiraf : terminal type: xgterm}\\
+{\tt mkdir dev ; cd dev}\\
+{\tt mknod imt1i p}\\
+{\tt mknod imt1o p}\\
+{\tt chmod 600 imt1[io]}
+
+The packages that are required for the various computing exercises are listed below.  These are needed to run some of the tasks, and should be included in the {\it login.cl} file for {\sc iraf}, to save you manually calling them every time you run {\sc iraf}. After opening the {\it login.cl} file, look for the line 
 
 {\sc \# List any packages you want loaded at login time, ONE PER LINE.}
 
